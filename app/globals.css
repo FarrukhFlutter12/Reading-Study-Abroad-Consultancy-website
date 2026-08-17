@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 72px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    /* room for the mobile sticky CTA bar */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-navy-dark;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold text-navy-dark shadow-chip hover:bg-gold-light hover:shadow-lift;
+  }
+
+  .btn-navy {
+    @apply btn bg-navy text-white hover:bg-navy-light;
+  }
+
+  .btn-outline-light {
+    @apply btn border border-white/40 bg-white/5 text-white hover:border-gold hover:bg-white/10;
+  }
+
+  .btn-outline-navy {
+    @apply btn border border-navy/25 bg-white text-navy hover:border-gold hover:bg-gold/10;
+  }
+
+  .card {
+    @apply rounded-2xl border border-navy/10 bg-white shadow-card;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full bg-navy px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-navy;
+  }
+
+  .prose-page {
+    @apply text-[15px] leading-relaxed text-ink/80;
+  }
+
+  .prose-page p {
+    @apply mb-4;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
