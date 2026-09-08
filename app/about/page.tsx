@@ -7,6 +7,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { countries } from "@/data/countries";
+import { images } from "@/data/images";
+import { SmartImage } from "@/components/SmartImage";
 import { usps } from "@/data/process";
 import { site } from "@/data/site";
 import { mission, officePhotos, team, values, vision } from "@/data/team";
@@ -121,6 +123,26 @@ export default function AboutPage() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------- photo band */}
+      <section aria-label="Inside our Hayatabad office" className="bg-cream pb-4">
+        <div className="container-page">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-card sm:aspect-[3/2]">
+              <SmartImage
+                slot={images.about.counselling}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-card sm:aspect-[3/2]">
+              <SmartImage
+                slot={images.about.officeTeam}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

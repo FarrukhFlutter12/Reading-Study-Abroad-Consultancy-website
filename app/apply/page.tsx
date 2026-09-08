@@ -41,7 +41,7 @@ export default function ApplyPage() {
             </Reveal>
 
             <Reveal className="mt-8">
-              <LeadForm variant="full" source="Apply Now page" />
+              <LeadForm variant="full" kind="application" source="Apply Now" />
             </Reveal>
 
             <Reveal className="mt-10 rounded-2xl bg-gold/10 p-6">

@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Client delivery duplicates. The identical originals are tracked in
+# /brand-source (verified byte-for-byte), which is what scripts/generate-icons.mjs
+# reads. Committing these too would add ~6 MB of duplicates to git history
+# permanently. Delete these two lines if you want them tracked after all.
+/Logo/
+/Logo.zip

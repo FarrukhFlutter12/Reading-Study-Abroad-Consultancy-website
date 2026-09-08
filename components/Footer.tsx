@@ -4,21 +4,24 @@ import { countries, inName } from "@/data/countries";
 import { legalLinks, quickLinks } from "@/data/nav";
 import { disclaimer, site } from "@/data/site";
 import { isReady, mapsLink, telLink } from "@/lib/utils";
-import { FacebookIcon, InstagramIcon, TikTokIcon } from "./Icon";
+import { getBrandAssets } from "@/lib/brandAssets";
+import { SocialLinks } from "./SocialLinks";
 import { Logo } from "./Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { facebook, instagram, tiktok } = site.socials;
-  const hasSocial =
-    isReady(facebook) || isReady(instagram) || isReady(tiktok);
+  const brand = getBrandAssets();
 
   return (
     <footer className="bg-navy-dark text-white/75">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:py-16">
         {/* About */}
         <div>
-          <Logo variant="dark" />
+          <Logo
+            asset={brand.stackedOnDark}
+            variant="dark"
+            sizeClass="h-20 w-auto"
+          />
           <p className="mt-5 font-script text-lg italic text-gold-light">
             {site.tagline}
           </p>
@@ -28,43 +31,7 @@ export function Footer() {
             documentation and student visa filing for ten destinations.
           </p>
 
-          {hasSocial && (
-            <div className="mt-6 flex items-center gap-3">
-              {isReady(facebook) && (
-                <a
-                  href={facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${site.name} on Facebook`}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/20 transition-colors hover:border-gold hover:text-gold"
-                >
-                  <FacebookIcon className="h-4 w-4" />
-                </a>
-              )}
-              {isReady(instagram) && (
-                <a
-                  href={instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${site.name} on Instagram`}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/20 transition-colors hover:border-gold hover:text-gold"
-                >
-                  <InstagramIcon className="h-4 w-4" />
-                </a>
-              )}
-              {isReady(tiktok) && (
-                <a
-                  href={tiktok}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${site.name} on TikTok`}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/20 transition-colors hover:border-gold hover:text-gold"
-                >
-                  <TikTokIcon className="h-4 w-4" />
-                </a>
-              )}
-            </div>
-          )}
+          <SocialLinks variant="circle" className="mt-6" />
         </div>
 
         {/* Quick links */}

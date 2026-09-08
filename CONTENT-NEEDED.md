@@ -9,18 +9,19 @@ Work through this list and the corresponding sections switch on automatically.
 
 ---
 
-## 1. Social media handles — *required*
+## 1. Social media handles — ✅ DONE
 
-**File:** `data/site.ts` → `socials`
+All three handles are live in `data/site.ts` and render in the top bar, footer,
+contact page, mobile drawer, and the `sameAs` field of the search-engine
+structured data:
 
-| Field | Current | Needed |
-|---|---|---|
-| `facebook` | ✅ Already set | — |
-| `instagram` | `REPLACE_ME` | Full profile URL, e.g. `https://www.instagram.com/readingstudyabroad.pk/` |
-| `tiktok` | `REPLACE_ME` | Full profile URL |
+| Platform | URL |
+|---|---|
+| Facebook | `https://www.facebook.com/ReadingStudyAbroad.PK` |
+| Instagram | `https://www.instagram.com/readingstudyabroad.pk` |
+| TikTok | `https://www.tiktok.com/@readingstudyabroad.pk` |
 
-**Where it shows:** top bar, footer, contact page, and the `sameAs` field in
-search-engine structured data. Icons for missing handles are hidden.
+Nothing further needed. To change a handle later, edit `data/site.ts` → `socials`.
 
 ---
 
@@ -121,54 +122,110 @@ The team section is hidden entirely while this array is empty. For each person:
 
 ---
 
-## 8. Office photos
+## 8. Office photos — 🔴 STILL NEEDED (client photos only)
 
-**File:** `data/team.ts` → `officePhotos`
-**Folder:** put images in `public/office/`
+**Folder:** `public/images/about/`
 
-Six photos would fill the About page gallery nicely:
+One of these is a factual claim about a real place and **must not be stock**:
 
-1. Building exterior / signage
-2. Reception area
-3. Counselling room
-4. A counsellor with a student (with permission)
-5. Wide interior shot
-6. Team group photo
+| File | Subject | Stock allowed? |
+|---|---|---|
+| `office-exterior.jpg` | The real Hayatabad office frontage with signage | ❌ **Client photo only** |
+| `office-team.jpg` | Counsellor and student at a desk, documents visible | ⚠️ Stock acceptable, real photo much better |
+| `counselling-session.jpg` | One-to-one counselling, laptop open | ⚠️ Stock acceptable, real photo much better |
 
-Landscape, at least 1200 px wide. Each needs a short `alt` description.
+A phone photo in decent daylight beats stock here — students recognise a real
+office, and it is the single strongest trust signal on the About page.
+
+If any staff member or student is identifiable in a photo, get their permission
+before it is published.
+
+See `IMAGES-NEEDED.md` for sizes and the full list of 31 image slots.
 
 ---
 
-## 9. Logo files
+## 8b. University partnership proof — 🔴 REQUIRED BEFORE LISTING ANY UNIVERSITY
 
-**Folder:** `public/`
-**File to update:** `data/site.ts` → `logo`
+Two separate things are blocked on this:
 
-| File | Purpose |
+1. **The universities list** (`data/universities.ts`, still empty)
+2. **Campus photography** — no university logo, crest or branded signage may
+   appear in any photo on the site
+
+Displaying a university's mark, or listing it as a partner, implies an official
+relationship. If that relationship does not exist and is challenged, it is the
+consultancy that carries the liability, not the website.
+
+For each university the client wants listed, supply **one** of:
+
+- A signed representation or partnership agreement
+- An official appointment letter or email from the university's international office
+- A listing of the consultancy on the university's own agent directory page
+
+Until then the Universities page shows a "list is being verified" panel with a
+shortlist request form, and campus photography stays generic. That is a
+deliberate choice, not an unfinished state.
+
+---
+
+## 8c. Consented student photos — 🔴 REQUIRED BEFORE ANY SUCCESS STORY
+
+**Folder:** `public/students/` · **File:** `data/testimonials.ts`
+
+A stock portrait next to a student testimonial is misrepresentation, so the
+success-story slots will never use one. For each student the client wants to
+feature, supply:
+
+- Their photo, or explicit permission to publish without one
+- Their story in their own words
+- Their destination, university and intake
+- **Written consent** — a WhatsApp message saying "yes, you can publish this"
+  is enough, but keep it on file, and tell them they can withdraw it any time
+
+Students who prefer not to appear in a photo can still have their story
+published with an initial-letter avatar instead.
+
+---
+
+## 9. Logo files — ✅ DONE
+
+The client supplied three square PNGs. They are archived in `/brand-source/`
+(outside `/public`, so the 3 MB of originals are never served to visitors), and
+`node scripts/generate-icons.mjs` derives every asset the site uses:
+
+| Generated file | Role |
 |---|---|
-| `logo.png` (or `.svg`) | For light backgrounds |
-| `logo-white.png` (or `.svg`) | For the navy header and footer |
+| `public/logo-on-light.png` | Wide lockup, purple + gold — light backgrounds |
+| `public/logo-on-dark.png` | Wide lockup, all gold — navy header, drawer |
+| `public/logo-stacked-on-dark.png` | Stacked lockup — footer |
+| `public/logo-mark.png` / `-on-dark.png` | Icon mark only |
+| `app/icon.png`, `app/apple-icon.png`, `app/favicon.ico` | Browser tab and home-screen icons |
 
-Then change `logo.onLight` to `"/logo.png"` and `logo.onDark` to
-`"/logo-white.png"`. Until you do, the site renders a text lockup
-(**READING** over — STUDY ABROAD —) matching your banner.
+Nothing further is needed. If the client sends new artwork, replace the files in
+`/brand-source/` and run `npm run logo`.
 
-Also useful: a square version at 512×512 for `public/icon.png` (browser tab and
-mobile bookmark icon).
+**One thing worth raising with the client:** their brand purple is `#24044C`,
+but the website's navy is `#0B1F4E`. These are visibly different — a violet
+versus a blue. The site currently keeps its navy and the logo sits on top of it,
+which looks fine, but if they want exact brand consistency the site palette can
+be shifted to `#24044C`. Their gold (`#FCAC04`) and the site gold (`#F5A623`)
+are close enough that no change is needed.
 
 ---
 
-## 10. Destination photos — *optional*
+## 10. Photography — 🟡 31 slots, see IMAGES-NEEDED.md
 
-**Folder:** `public/destinations/`
+Every photographic slot on the site is already wired up. Until a file exists the
+page renders a branded navy→gold panel, so nothing looks broken and there is no
+half-finished state to worry about.
 
-Country pages currently use the navy brand gradient with the flag, which looks
-clean and loads fast. If you want photography instead, supply one landscape
-image per country named after its slug (`uk.jpg`, `cyprus.jpg`, and so on),
-at least 1600 px wide.
+`IMAGES-NEEDED.md` is the working checklist — it lists all 31 slots with the
+exact filename, dimensions, size budget, a copy-paste Unsplash/Pexels search
+query, and a note on what makes a good pick. Regenerate it any time with
+`npm run images:doc` and it re-counts what has been supplied.
 
-> Use only images you have the rights to. Unsplash and Pexels are free for
-> commercial use; a Google image search result is not.
+Free and safe sources: **Unsplash** and **Pexels** only. Never Getty,
+Shutterstock, Freepik or Google Images.
 
 ---
 
@@ -243,7 +300,9 @@ the sitemap, canonical URLs and all structured data.
 
 | Priority | Item |
 |---|---|
-| 🔴 Before launch | 14 (Web3Forms key), 2 (office hours), 15 (domain) |
-| 🟠 First week | 1 (social handles), 9 (logo files), 11 (Maps pin + Google Business Profile) |
-| 🟡 First month | 5 (universities), 6 (testimonials), 7 (team), 8 (office photos) |
-| 🟢 When ready | 3, 4, 10, 12, 13 |
+| 🔴 Before launch | 14 (Web3Forms key — **no form works without it**), 2 (office hours), 15 (domain) |
+| 🟠 First week | 8 (office exterior photo), 11 (Maps pin + Google Business Profile) |
+| 🟡 First month | 8b (university partnership proof), 5 (universities list), 8c + 6 (consented testimonials), 7 (team), 10 (photography) |
+| 🟢 When ready | 3, 4, 12, 13 |
+
+✅ **Done:** 1 (social handles), 9 (logo files — all assets generated).

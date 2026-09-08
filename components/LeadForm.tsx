@@ -6,7 +6,7 @@ import { AlertCircle, CheckCircle2, Loader2, Send } from "lucide-react";
 import { countries } from "@/data/countries";
 import { site } from "@/data/site";
 import { cn, isValidEmail, isValidPkPhone, waLink } from "@/lib/utils";
-import { submitToWeb3Forms } from "@/lib/web3forms";
+import { submitForm, subjectFor } from "@/lib/submitForm";
 import { WhatsAppIcon } from "./Icon";
 
 const QUALIFICATIONS = [
@@ -56,14 +56,24 @@ const EMPTY: Values = {
   botcheck: "",
 };
 
+/** Which subject line the office sees, so the inbox stays sortable. */
+export type LeadFormKind =
+  | "application"
+  | "contact"
+  | "quick"
+  | "destination"
+  | "general";
+
 export function LeadForm({
   variant = "compact",
+  kind = "general",
   source = "Website",
   presetCountry,
   className,
   onDark = false,
 }: {
   variant?: "compact" | "full";
+  kind?: LeadFormKind;
   /** Appears in the notification email so the office knows which page it came from. */
   source?: string;
   presetCountry?: string;
@@ -71,15 +81,16 @@ export function LeadForm({
   onDark?: boolean;
 }) {
   const full = variant === "full";
-  const [v, setV] = useState<Values>({
-    ...EMPTY,
-    country: presetCountry ?? "",
-  });
+  const initial = { ...EMPTY, country: presetCountry ?? "" };
+
+  const [v, setV] = useState<Values>(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof Values, string>>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
   const [serverError, setServerError] = useState("");
+  /** Snapshot of what was sent, so the success panel survives the form reset. */
+  const [sent, setSent] = useState<Values | null>(null);
 
   const set = (k: keyof Values, val: string) => {
     setV((p) => ({ ...p, [k]: val }));
@@ -100,18 +111,30 @@ export function LeadForm({
     return Object.keys(e).length === 0;
   };
 
-  const summary = `New enquiry from ${v.name || "a student"}${
-    v.country ? ` — ${v.country}` : ""
-  }`;
+  const buildSubject = (val: Values) => {
+    switch (kind) {
+      case "application":
+        return subjectFor.application(val.name, val.country);
+      case "contact":
+        return subjectFor.contact(val.name);
+      case "quick":
+        return subjectFor.quick(val.name);
+      case "destination":
+        return subjectFor.destination(val.name, val.country);
+      default:
+        return subjectFor.general(val.name, source);
+    }
+  };
 
-  const waMessage = `Assalam-o-Alaikum! I have just submitted an enquiry on your website.
+  const waMessageFor = (val: Values) =>
+    `Assalam o Alaikum, I just submitted the ${source} form on your website.
 
-Name: ${v.name}
-Phone: ${v.phone}
-Preferred destination: ${v.country}
-Highest qualification: ${v.qualification}${
-    full && v.level ? `\nCourse level: ${v.level}` : ""
-  }${full && v.intake ? `\nPreferred intake: ${v.intake}` : ""}`;
+Name: ${val.name}
+Phone: ${val.phone}
+Preferred Country: ${val.country}
+Highest Qualification: ${val.qualification}${
+      full && val.level ? `\nCourse Level: ${val.level}` : ""
+    }${full && val.intake ? `\nPreferred Intake: ${val.intake}` : ""}`;
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -121,26 +144,28 @@ Highest qualification: ${v.qualification}${
     setStatus("sending");
 
     const payload: Record<string, string> = {
-      "Full name": v.name,
+      "Full Name": v.name,
       "Phone (WhatsApp)": v.phone,
       Email: v.email,
-      "Preferred destination": v.country,
-      "Highest qualification": v.qualification,
-      "Form source": source,
+      "Preferred Country": v.country,
+      "Highest Qualification": v.qualification,
+      "Form Source": source,
     };
     if (full) {
       payload.City = v.city;
-      payload["Course level"] = v.level || "Not specified";
-      payload["Preferred intake"] = v.intake || "Not specified";
+      payload["Course Level"] = v.level || "Not specified";
+      payload["Preferred Intake"] = v.intake || "Not specified";
       payload.Message = v.message || "—";
     }
 
-    const res = await submitToWeb3Forms(payload, {
-      subject: `${summary} | ${source}`,
+    const res = await submitForm(payload, buildSubject(v), {
       botcheck: v.botcheck,
     });
 
     if (res.ok) {
+      setSent(v);
+      setV(initial); // clear the form so a second enquiry starts clean
+      setErrors({});
       setStatus("sent");
     } else {
       setStatus("error");
@@ -149,22 +174,23 @@ Highest qualification: ${v.qualification}${
   }
 
   /* ------------------------------------------------------------- success */
-  if (status === "sent") {
+  if (status === "sent" && sent) {
     return (
       <div
         className={cn(
           "rounded-2xl border p-6 text-center sm:p-8",
           onDark
-            ? "border-white/15 bg-white/5"
-            : "border-navy/10 bg-white shadow-card",
+            ? "border-emerald-400/30 bg-emerald-500/10"
+            : "border-emerald-200 bg-emerald-50 shadow-card",
           className,
         )}
+        role="status"
       >
-        <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-gold/20 text-gold-dark">
+        <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-emerald-100 text-emerald-700">
           <CheckCircle2 className="h-8 w-8" strokeWidth={2} aria-hidden />
         </span>
         <h3 className={cn("mt-5 text-xl", onDark && "text-white")}>
-          Thank you, {v.name.split(" ")[0]}
+          Thank you, {sent.name.split(" ")[0]}
         </h3>
         <p
           className={cn(
@@ -178,7 +204,7 @@ Highest qualification: ${v.qualification}${
         </p>
         <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
           <a
-            href={waLink(site.whatsapp, waMessage)}
+            href={waLink(site.whatsapp, waMessageFor(sent))}
             target="_blank"
             rel="noopener noreferrer"
             className="btn bg-[#25D366] text-white hover:brightness-105"
@@ -217,7 +243,8 @@ Highest qualification: ${v.qualification}${
         className,
       )}
     >
-      {/* Honeypot — visually hidden, never focusable */}
+      {/* Honeypot — visually hidden, never focusable. Web3Forms also rejects
+          submissions where this is filled; we drop them client-side first. */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
         <label htmlFor={`botcheck-${source}`}>Do not fill this field</label>
         <input
@@ -413,13 +440,24 @@ Highest qualification: ${v.qualification}${
       </div>
 
       {status === "error" && serverError && (
-        <p
+        <div
           role="alert"
-          className="mt-4 flex items-start gap-2 rounded-xl bg-red-50 p-3 text-sm text-red-700"
+          className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4"
         >
-          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-          {serverError}
-        </p>
+          <p className="flex items-start gap-2 text-sm text-red-700">
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+            {serverError}
+          </p>
+          <a
+            href={waLink(site.whatsapp, waMessageFor(v))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn mt-3 w-full bg-[#25D366] py-2.5 text-sm text-white hover:brightness-105"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
+            Send these details on WhatsApp instead
+          </a>
+        </div>
       )}
 
       <button

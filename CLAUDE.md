@@ -49,8 +49,10 @@ student a destination is a poor fit.
 **Do not add dependencies.** No UI kit, no CMS, no database, no paid analytics.
 Everything here is free-tier.
 
-> Note: `lucide-react` v1 removed brand marks. WhatsApp, Facebook, Instagram and
-> TikTok icons are hand-authored SVGs in `components/Icon.tsx`.
+> Note: `lucide-react` v1 removed brand marks, so WhatsApp, Facebook and
+> Instagram are hand-authored SVGs in `components/Icon.tsx`, and TikTok lives in
+> `components/icons/TikTokIcon.tsx`. Render social links through
+> `components/SocialLinks.tsx` rather than repeating the markup.
 
 ---
 
@@ -88,7 +90,9 @@ app/          routes only
 components/   shared UI; 'use client' at the leaf, never on a page
 data/         ALL editable copy — the client edits here, not in components
 lib/          utils.ts (helpers + isReady), seo.ts (metadata + JSON-LD builders),
-              web3forms.ts (submission client)
+              submitForm.ts (the ONLY Web3Forms client),
+              brandAssets.ts (SERVER-ONLY logo detection — never import
+              from a 'use client' file)
 public/flags/ ten hand-authored SVGs, named by country slug
 ```
 
@@ -113,7 +117,7 @@ public/flags/ ten hand-authored SVGs, named by country slug
 
 Every form must carry:
 
-- The Web3Forms access key from `site.web3formsKey`
+- The access key, supplied automatically by `submitForm()`
 - A descriptive `subject`
 - `from_name` = "Reading Study Abroad Website"
 - A visually hidden honeypot named `botcheck`
@@ -121,8 +125,17 @@ Every form must carry:
 - Loading, success and error states
 - A WhatsApp hand-off button on success, with the enquiry pre-filled
 
-Use `submitToWeb3Forms()` from `lib/web3forms.ts` rather than calling fetch
-directly — it handles the missing-key case gracefully.
+Use `submitForm()` from `lib/submitForm.ts`. **No form may call fetch
+directly.** It attaches the access key, subject, `from_name` and a reply-to
+address, drops honeypot hits silently, and returns a friendly message when the
+key is missing.
+
+Subject lines come from `subjectFor` in the same file so the office inbox stays
+sortable: `APPLICATION —`, `FREE ASSESSMENT —`, `CONTACT —`, `QUICK LEAD —`,
+`LEAD (Country) —`.
+
+In development, a red banner appears on every page when the key is missing
+(`components/DevConfigWarning.tsx`). It never renders in production.
 
 ---
 

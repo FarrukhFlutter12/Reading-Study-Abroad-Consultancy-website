@@ -22,10 +22,11 @@ export const site = {
   phonesDisplay: ["+92 314 9659005", "+92 316 0189304"],
   whatsapp: "923149659005",
   email: "readingstudyabroad.pk@gmail.com",
+  // All three confirmed live by the client — these always render.
   socials: {
-    facebook: "https://www.facebook.com/ReadingStudyAbroad.PK/",
-    instagram: "REPLACE_ME", // client se handle lena hai
-    tiktok: "REPLACE_ME", // client se handle lena hai
+    facebook: "https://www.facebook.com/ReadingStudyAbroad.PK",
+    instagram: "https://www.instagram.com/readingstudyabroad.pk",
+    tiktok: "https://www.tiktok.com/@readingstudyabroad.pk",
   },
   officeHours: "REPLACE_ME", // e.g. "Mon – Sat, 10:00 AM – 6:00 PM"
   foundedYear: "REPLACE_ME",
@@ -36,15 +37,24 @@ export const site = {
     countries: "10",
   },
   /**
-   * Logo files. Drop the client's artwork into /public and swap these two
-   * values from REPLACE_ME to the paths ("/logo.png", "/logo-white.png").
-   * Until then the header/footer render the text lockup automatically.
+   * Logo assets, named by the BACKGROUND they belong on — not by filename.
+   *
+   * The rule: dark/navy background -> `onDark` (gold artwork); light, cream or
+   * gold background -> `onLight` (purple artwork). Never gold-on-gold, and
+   * never white artwork on gold.
+   *
+   * Every file here is generated from the client's originals in /brand-source
+   * by `node scripts/generate-icons.mjs`. Do not edit them by hand — re-run the
+   * script instead. lib/brandAssets.ts verifies each file exists at build time.
    */
   logo: {
-    onLight: "REPLACE_ME", // e.g. "/logo.png"
-    onDark: "REPLACE_ME", // e.g. "/logo-white.png"
+    onLight: "/logo-on-light.png", // wide lockup, purple + gold artwork
+    onDark: "/logo-on-dark.png", // wide lockup, all-gold artwork
+    stackedOnLight: "/logo-stacked-on-light.png",
+    stackedOnDark: "/logo-stacked-on-dark.png",
+    mark: "/logo-mark.png", // icon only, colour
+    markOnDark: "/logo-mark-on-dark.png", // icon only, gold
   },
-  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "",
 };
 
 /** Labels for the stats band — keys must match site.stats. */

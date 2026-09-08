@@ -2,9 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { countries } from "@/data/countries";
+import { images } from "@/data/images";
 import { site } from "@/data/site";
 import { waLink } from "@/lib/utils";
 import { WhatsAppIcon } from "./Icon";
+import { SmartImage } from "./SmartImage";
 
 /**
  * Deliberately a server component with CSS-only entrance animation.
@@ -21,6 +23,17 @@ const WA_MESSAGE =
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy-gradient">
+      {/* Campus photography sits behind everything, under a strong navy wash so
+          the headline keeps its contrast whichever photo is dropped in.
+          Falls back to the brand gradient until the file exists. */}
+      <SmartImage
+        slot={images.hero.main}
+        priority
+        blur
+        overlay="strong"
+        sizes="100vw"
+      />
+
       {/* world-map dot pattern */}
       <span
         aria-hidden

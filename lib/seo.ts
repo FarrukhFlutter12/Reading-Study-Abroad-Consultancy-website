@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/data/site";
+import { getBrandAssets } from "./brandAssets";
 import { isReady } from "./utils";
 
 export const TITLE_SUFFIX = "Reading Study Abroad — Peshawar";
@@ -44,7 +45,11 @@ export function pageMeta({
 /* ------------------------------------------------------------- JSON-LD */
 
 export function organizationJsonLd() {
+  // All three social profiles are confirmed, so sameAs is always populated.
+  // This is what tells Google the profiles belong to this business.
   const sameAs = Object.values(site.socials).filter(isReady);
+  const brand = getBrandAssets();
+  const logoUrl = brand.onLight ? `${site.url}${brand.onLight.src}` : null;
 
   return {
     "@context": "https://schema.org",
@@ -57,6 +62,7 @@ export function organizationJsonLd() {
     email: site.email,
     telephone: site.phones,
     slogan: site.tagline,
+    ...(logoUrl ? { logo: logoUrl, image: logoUrl } : {}),
     ...(isReady(site.foundedYear) ? { foundingDate: site.foundedYear } : {}),
     ...(sameAs.length ? { sameAs } : {}),
     ...(isReady(site.officeHours)

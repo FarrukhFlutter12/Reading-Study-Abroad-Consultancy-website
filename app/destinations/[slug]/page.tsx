@@ -11,6 +11,8 @@ import { PrintButton } from "@/components/PrintButton";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { countries, countryBySlug, inName } from "@/data/countries";
+import { images } from "@/data/images";
+import { SmartImage } from "@/components/SmartImage";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -39,11 +41,15 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
     .slice(0, 4);
   const fallbackRelated = countries.filter((x) => x.slug !== c.slug).slice(0, 4);
   const relatedList = related.length >= 2 ? related : fallbackRelated;
+  const shot = images.destinations[c.slug];
 
   return (
     <>
       {/* --------------------------------------------------------- hero */}
       <section className="relative overflow-hidden bg-navy-gradient">
+        {shot && (
+          <SmartImage slot={shot.hero} blur overlay="strong" sizes="100vw" />
+        )}
         <span
           aria-hidden
           className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"
@@ -290,6 +296,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
               </h2>
               <LeadForm
                 variant="compact"
+                kind="destination"
                 source={`Destination — ${c.name}`}
                 presetCountry={c.name}
               />

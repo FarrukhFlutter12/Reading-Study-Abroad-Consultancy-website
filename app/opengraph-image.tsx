@@ -10,8 +10,28 @@ export const alt = `${site.name} — study abroad consultants in Peshawar`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/** Generated OG card: navy ground, gold logo lockup, tagline. */
-export default function OpengraphImage() {
+/**
+ * Generated OG card: navy ground, gold logo lockup, tagline.
+ *
+ * This route runs on the edge, where node:fs is unavailable, so it cannot use
+ * lib/brandAssets.ts. Instead it probes the deployed URL for the icon mark and
+ * only draws it when it really exists — a missing file would otherwise make
+ * Satori throw and break the whole card.
+ */
+async function resolveIconUrl(): Promise<string | null> {
+  // The card background is navy, so the gold mark is the correct contrast pick.
+  const url = `${site.url}${site.logo.markOnDark}`;
+  try {
+    const res = await fetch(url, { method: "HEAD" });
+    return res.ok ? url : null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function OpengraphImage() {
+  const iconUrl = await resolveIconUrl();
+
   return new ImageResponse(
     (
       <div
@@ -56,6 +76,16 @@ export default function OpengraphImage() {
 
         {/* lockup */}
         <div style={{ display: "flex", flexDirection: "column" }}>
+          {iconUrl && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={iconUrl}
+              alt=""
+              width={116}
+              height={116}
+              style={{ marginBottom: 30, objectFit: "contain" }}
+            />
+          )}
           <div
             style={{
               fontSize: 92,

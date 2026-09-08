@@ -10,13 +10,14 @@ import { countries } from "@/data/countries";
 import { resourceLinks } from "@/data/nav";
 import { services } from "@/data/services";
 import { cn } from "@/lib/utils";
+import type { BrandAssets } from "@/lib/brandAssets";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
 
 type MenuKey = "destinations" | "services" | "resources";
 
-export function Header() {
+export function Header({ brand }: { brand: BrandAssets }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
@@ -81,7 +82,20 @@ export function Header() {
           scrolled ? "h-[64px]" : "h-[76px]",
         )}
       >
-        <Logo variant="dark" />
+        {/* Contrast rule: this header is navy at BOTH scroll states
+            (bg-navy -> bg-navy/95), so the gold on-dark lockup is correct
+            throughout — there is no light background to swap for. `scrolled`
+            only drives the size change. If the header is ever made transparent
+            over a light hero, swap to brand.onLight on that same flag. */}
+        <Logo
+          asset={brand.onDark}
+          variant="dark"
+          sizeClass={cn(
+            "w-auto transition-all duration-300",
+            scrolled ? "h-9 sm:h-10" : "h-10 sm:h-12",
+          )}
+          priority
+        />
 
         {/* ------------------------------------------------ desktop nav */}
         <nav aria-label="Main" className="hidden xl:block">
@@ -301,7 +315,7 @@ export function Header() {
           >
             Free Assessment
           </Link>
-          <MobileNav />
+          <MobileNav brand={brand} />
         </div>
       </div>
     </header>

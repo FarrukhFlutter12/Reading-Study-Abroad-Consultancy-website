@@ -11,12 +11,14 @@ import { resourceLinks } from "@/data/nav";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
 import { cn, telLink, waLink } from "@/lib/utils";
+import type { BrandAssets } from "@/lib/brandAssets";
 import { Logo } from "./Logo";
+import { SocialLinks } from "./SocialLinks";
 import { WhatsAppIcon } from "./Icon";
 
 type Group = "destinations" | "services" | "resources";
 
-export function MobileNav() {
+export function MobileNav({ brand }: { brand: BrandAssets }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -85,7 +87,11 @@ export function MobileNav() {
               transition={{ type: "tween", duration: 0.28, ease: "easeOut" }}
             >
               <div className="flex items-center justify-between border-b border-white/10 px-4 py-4">
-                <Logo variant="dark" />
+                <Logo
+                  asset={brand.onDark}
+                  variant="dark"
+                  sizeClass="h-10 w-auto"
+                />
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
@@ -249,6 +255,11 @@ export function MobileNav() {
                 >
                   Free Eligibility Check
                 </Link>
+                <SocialLinks
+                  variant="circle"
+                  className="justify-center pt-1"
+                  circleClass="border-white/20"
+                />
                 <div className="grid grid-cols-2 gap-2">
                   <a
                     href={telLink(site.phones[0])}

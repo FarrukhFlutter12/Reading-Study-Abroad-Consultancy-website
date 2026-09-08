@@ -1,11 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/Blocks";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TikTokIcon,
-  WhatsAppIcon,
-} from "@/components/Icon";
+import { WhatsAppIcon } from "@/components/Icon";
+import { SocialLinks } from "@/components/SocialLinks";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
@@ -27,9 +23,6 @@ const WA_MESSAGE =
   "Assalam-o-Alaikum! I would like to book a free counselling session.";
 
 export default function ContactPage() {
-  const { facebook, instagram, tiktok } = site.socials;
-  const hasSocial = isReady(facebook) || isReady(instagram) || isReady(tiktok);
-
   return (
     <>
       <PageHero
@@ -122,66 +115,28 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {(isReady(site.officeHours) || hasSocial) && (
-            <div className="mt-5 flex flex-col gap-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:flex-row sm:items-center sm:justify-between">
-              {isReady(site.officeHours) && (
-                <p className="flex items-center gap-3 text-sm text-ink/80">
-                  <Clock
-                    className="h-5 w-5 shrink-0 text-gold-dark"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                  <span>
-                    <span className="font-semibold text-navy">
-                      Office hours:{" "}
-                    </span>
-                    {site.officeHours}
-                  </span>
-                </p>
-              )}
+          <div className="mt-5 flex flex-col gap-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:flex-row sm:items-center sm:justify-between">
+            {isReady(site.officeHours) ? (
+              <p className="flex items-center gap-3 text-sm text-ink/80">
+                <Clock
+                  className="h-5 w-5 shrink-0 text-gold-dark"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                <span>
+                  <span className="font-semibold text-navy">Office hours: </span>
+                  {site.officeHours}
+                </span>
+              </p>
+            ) : (
+              <span />
+            )}
 
-              {hasSocial && (
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium text-navy">
-                    Follow us
-                  </span>
-                  {isReady(facebook) && (
-                    <a
-                      href={facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${site.name} on Facebook`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold-dark"
-                    >
-                      <FacebookIcon className="h-4 w-4" />
-                    </a>
-                  )}
-                  {isReady(instagram) && (
-                    <a
-                      href={instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${site.name} on Instagram`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold-dark"
-                    >
-                      <InstagramIcon className="h-4 w-4" />
-                    </a>
-                  )}
-                  {isReady(tiktok) && (
-                    <a
-                      href={tiktok}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${site.name} on TikTok`}
-                      className="grid h-9 w-9 place-items-center rounded-full border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold-dark"
-                    >
-                      <TikTokIcon className="h-4 w-4" />
-                    </a>
-                  )}
-                </div>
-              )}
+            <div className="flex items-center gap-3 text-navy">
+              <span className="text-sm font-medium">Follow us</span>
+              <SocialLinks variant="circle" circleClass="border-navy/15" />
             </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -197,7 +152,7 @@ export default function ContactPage() {
               subtitle="Fill this in and a counsellor will reply within 24 hours. If you would rather answer the full questionnaire, use the free assessment instead."
             />
             <div className="mt-8">
-              <LeadForm variant="full" source="Contact page" />
+              <LeadForm variant="full" kind="contact" source="Contact page" />
             </div>
           </Reveal>
 

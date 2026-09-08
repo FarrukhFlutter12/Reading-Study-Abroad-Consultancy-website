@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { countries } from "@/data/countries";
+import { LogoIcon } from "@/components/Logo";
+import { getBrandAssets } from "@/lib/brandAssets";
 
 export default function NotFound() {
+  const brand = getBrandAssets();
+
   return (
     <section className="relative overflow-hidden bg-navy-gradient">
       <span
@@ -14,6 +18,12 @@ export default function NotFound() {
       />
 
       <div className="container-page relative flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
+        <LogoIcon
+          asset={brand.markOnDark}
+          sizeClass="h-16 w-16 sm:h-20 sm:w-20"
+          className="mb-6"
+        />
+
         <p className="font-display text-[5rem] font-bold leading-none text-gold sm:text-[7rem]">
           404
         </p>

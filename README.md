@@ -26,19 +26,79 @@ npm run lint     # ESLint
 
 ---
 
+## Form Setup (required)
+
+**No form on this site can send anything until this is done.** Until the key
+exists, every form shows a polite message asking the visitor to call or WhatsApp
+instead — nothing looks broken, but no enquiry reaches the inbox.
+
+### 1. Create the access key
+
+1. Go to <https://web3forms.com>
+2. Enter `readingstudyabroad.pk@gmail.com` and click **Create Access Key**
+3. Check that inbox — the key arrives by email
+
+### 2. Local development
+
+```bash
+cp .env.example .env.local
+```
+
+Paste the key into `.env.local`:
+
+```
+NEXT_PUBLIC_WEB3FORMS_KEY=your_key_here
+```
+
+Then **restart the dev server** — Next.js only reads env files at startup. While
+the key is missing you will see a red banner across the top of every page in
+development; that banner never appears in production.
+
+### 3. Vercel (production)
+
+1. Project → **Settings** → **Environment Variables**
+2. Add `NEXT_PUBLIC_WEB3FORMS_KEY`, applied to **Production, Preview and
+   Development**
+3. **Redeploy.**
+
+> The redeploy is not optional. `NEXT_PUBLIC_*` variables are inlined into the
+> JavaScript bundle at build time, so adding the variable does nothing to a
+> build that has already shipped.
+
+### 4. Verify it works
+
+Submit the contact form with real details and confirm the email arrives at
+`readingstudyabroad.pk@gmail.com`. The subject line tells you which form it came
+from — `APPLICATION —`, `FREE ASSESSMENT —`, `CONTACT —`, `QUICK LEAD —` or
+`LEAD (Country) —` — so the inbox stays sortable. Hitting Reply in Gmail replies
+straight to the student, because every submission sets a reply-to address.
+
+---
+
 ## Environment variables
 
 | Variable | Required | What it does |
 |---|---|---|
 | `NEXT_PUBLIC_WEB3FORMS_KEY` | Yes | Delivers form submissions to the office inbox |
 
-Get the key free at <https://web3forms.com> using
-`readingstudyabroad.pk@gmail.com`. Put it in `.env.local` for development, and
-add it in Vercel for production.
+---
 
-**Without the key**, every form shows a polite message asking the visitor to
-call or WhatsApp instead — the site still works, but no enquiries arrive by
-email.
+## Logo files
+
+The site ships with a text lockup (**READING** over — STUDY ABROAD —) and
+switches to the real artwork automatically. To activate it, drop these three
+files into `/public/` and redeploy — **no code changes needed**:
+
+| File | Used for |
+|---|---|
+| `public/logo.png` | Light backgrounds |
+| `public/logo-white.png` | The navy header, footer and mobile drawer |
+| `public/logo-icon.png` | Favicon, Apple touch icon, OG card, 404 page |
+
+`lib/brandAssets.ts` checks for these at build time and reads each PNG's real
+dimensions from its header, so the logo is never stretched. If `logo-white.png`
+is missing but `logo.png` is present, the colour logo is inverted with CSS as a
+stopgap — supply the real white file when you can.
 
 ---
 
@@ -150,7 +210,8 @@ app/                        routes (App Router)
   opengraph-image.tsx       generated social share card
 components/                 shared UI
 data/                       ALL editable content
-lib/                        helpers (utils, SEO builders, Web3Forms client)
+lib/                        utils, SEO builders, submitForm (the one form
+                            client), brandAssets (server-only logo detection)
 public/flags/               ten hand-authored flag SVGs
 ```
 
@@ -158,20 +219,28 @@ public/flags/               ten hand-authored flag SVGs
 
 ## Forms
 
-Three form components, all posting to Web3Forms:
+Every form routes through **one** submit client, `lib/submitForm.ts`. No form
+component calls `fetch` directly — that keeps the access key, subject, reply-to
+address, honeypot handling and error copy identical everywhere.
 
-- **`LeadForm`** — reusable, `variant="compact" | "full"`. Used in the home page
-  band, destination sidebars, service sidebars, blog sidebars, contact and apply.
-- **`AssessmentForm`** — the four-step assessment on `/free-assessment`.
+Two form components consume it:
 
-Every form includes a hidden honeypot field, client-side validation (Pakistani
-mobile format `03xxxxxxxxx` / `+923xxxxxxxxx`), loading/success/error states, and
-a WhatsApp hand-off button on success with the enquiry pre-filled.
+- **`LeadForm`** — reusable, `variant="compact" | "full"` and `kind` (which
+  chooses the subject line). Used on the home page band, destination sidebars,
+  service sidebars, blog sidebars, contact, scholarships, test prep and apply.
+- **`AssessmentForm`** — the four-step assessment on `/free-assessment`. Each
+  step validates before "Continue"; only the final step submits, with all four
+  steps' data merged.
 
-Submissions arrive at `readingstudyabroad.pk@gmail.com` with a subject line
-naming the student and their destination, so you can triage from the inbox.
+Both provide: a hidden `botcheck` honeypot, controlled inputs, client-side
+validation (Pakistani mobile `03xxxxxxxxx` / `+923xxxxxxxxx`, plus email), the
+four states idle → sending → success → error, a WhatsApp fallback button on the
+error panel, and a WhatsApp handoff with the enquiry pre-filled on success. The
+form resets after a successful send while the success panel keeps showing the
+submitted name from a snapshot.
 
----
+Submissions arrive at `readingstudyabroad.pk@gmail.com`. See **Form Setup
+(required)** above — without the access key nothing sends.
 
 ## Flags
 

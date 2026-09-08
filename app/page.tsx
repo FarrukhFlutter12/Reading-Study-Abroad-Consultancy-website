@@ -278,7 +278,7 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <LeadForm variant="compact" source="Home — inline form" onDark />
+            <LeadForm variant="compact" kind="quick" source="Home — inline form" onDark />
           </Reveal>
         </div>
       </section>

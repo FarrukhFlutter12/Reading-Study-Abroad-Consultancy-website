@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "logo": "node scripts/generate-icons.mjs",
+    "images:doc": "node scripts/generate-images-doc.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",

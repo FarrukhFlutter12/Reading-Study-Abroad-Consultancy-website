@@ -14,7 +14,7 @@ import {
 import { countries } from "@/data/countries";
 import { site } from "@/data/site";
 import { cn, isValidEmail, isValidPkPhone, waLink } from "@/lib/utils";
-import { submitToWeb3Forms } from "@/lib/web3forms";
+import { submitForm, subjectFor } from "@/lib/submitForm";
 import { WhatsAppIcon } from "./Icon";
 
 /* ------------------------------------------------------------- options */
@@ -134,6 +134,8 @@ export function AssessmentForm() {
     "idle",
   );
   const [serverError, setServerError] = useState("");
+  /** Snapshot of what was sent, so the success screen survives the form reset. */
+  const [sent, setSent] = useState<Values | null>(null);
 
   const set = <K extends keyof Values>(k: K, val: Values[K]) => {
     setV((p) => ({ ...p, [k]: val }));
@@ -212,15 +214,17 @@ export function AssessmentForm() {
       ?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   };
 
-  const waSummary = `Assalam-o-Alaikum! I have submitted the free assessment form on your website.
+  const waSummaryFor = (val: Values) =>
+    `Assalam o Alaikum, I just submitted the Free Assessment form on your website.
 
-Name: ${v.name}
-City: ${v.city}
-Qualification: ${v.qualification} (${v.fieldOfStudy}, ${v.completionYear})
-English test: ${v.englishTest}${v.englishScore ? ` — ${v.englishScore}` : ""}
-Interested in: ${v.destinations.join(", ")}
-Course level: ${v.level}
-Preferred intake: ${v.intake}
+Name: ${val.name}
+Phone: ${val.phone}
+City: ${val.city}
+Qualification: ${val.qualification} (${val.fieldOfStudy}, ${val.completionYear})
+English test: ${val.englishTest}${val.englishScore ? ` — ${val.englishScore}` : ""}
+Preferred Country: ${val.destinations.join(", ")}
+Course level: ${val.level}
+Preferred intake: ${val.intake}
 
 Please guide me on the next steps.`;
 
@@ -231,43 +235,43 @@ Please guide me on the next steps.`;
 
     setStatus("sending");
 
-    const res = await submitToWeb3Forms(
+    const res = await submitForm(
       {
-        "Full name": v.name,
+        "Full Name": v.name,
         "Phone (WhatsApp)": v.phone,
         Email: v.email,
         City: v.city,
 
-        "Highest qualification": v.qualification,
-        "Field of study": v.fieldOfStudy,
-        "Completion year": v.completionYear,
-        "Grade / percentage": v.grade || "Not provided",
-        "English test": v.englishTest,
-        "English score": v.englishScore || "—",
+        "Highest Qualification": v.qualification,
+        "Field of Study": v.fieldOfStudy,
+        "Completion Year": v.completionYear,
+        "Grade / Percentage": v.grade || "Not provided",
+        "English Test": v.englishTest,
+        "English Score": v.englishScore || "—",
 
-        "Preferred destinations": v.destinations.join(", "),
-        "Course level": v.level,
-        "Preferred intake": v.intake,
-        "Budget range": v.budget || "Not specified",
+        "Preferred Country": v.destinations.join(", "),
+        "Course Level": v.level,
+        "Preferred Intake": v.intake,
+        "Budget Range": v.budget || "Not specified",
 
-        "Passport status": v.passport,
-        "Previous visa refusal": v.refusal,
-        "Refusal details": v.refusalDetails || "—",
+        "Passport Status": v.passport,
+        "Previous Visa Refusal": v.refusal,
+        "Refusal Details": v.refusalDetails || "—",
         Sponsor: v.sponsor || "Not specified",
-        "Heard about us via": v.source || "Not specified",
+        "Heard About Us Via": v.source || "Not specified",
         Message: v.message || "—",
 
-        "Form source": "Free Assessment (4-step)",
+        "Form Source": "Free Assessment (4-step)",
       },
-      {
-        subject: `New Free Assessment — ${v.name} — ${
-          v.destinations.join(", ") || "No destination selected"
-        }`,
-        botcheck: v.botcheck,
-      },
+      subjectFor.assessment(v.name, v.destinations.join(", ")),
+      { botcheck: v.botcheck },
     );
 
     if (res.ok) {
+      setSent(v);
+      setV(EMPTY); // clear the form so a second enquiry starts clean
+      setErrors({});
+      setStep(0);
       setStatus("sent");
       scrollToTop();
     } else {
@@ -277,7 +281,7 @@ Please guide me on the next steps.`;
   }
 
   /* ------------------------------------------------------------ success */
-  if (status === "sent") {
+  if (status === "sent" && sent) {
     return (
       <div
         id="assessment-top"
@@ -288,14 +292,14 @@ Please guide me on the next steps.`;
         </span>
 
         <h2 className="mt-6 text-2xl sm:text-3xl">
-          Assessment received, {v.name.split(" ")[0]}
+          Assessment received, {sent.name.split(" ")[0]}
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-ink/75">
           Your details have reached our Hayatabad office. A counsellor will
           review your academic profile against your chosen destinations and
           contact you <strong className="text-navy">within 24 hours</strong> on{" "}
           <span className="whitespace-nowrap font-medium text-navy">
-            {v.phone}
+            {sent.phone}
           </span>
           .
         </p>
@@ -311,7 +315,7 @@ Please guide me on the next steps.`;
 
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
           <a
-            href={waLink(site.whatsapp, waSummary)}
+            href={waLink(site.whatsapp, waSummaryFor(sent))}
             target="_blank"
             rel="noopener noreferrer"
             className="btn bg-[#25D366] px-7 py-3.5 text-base text-white hover:brightness-105"
@@ -326,8 +330,8 @@ Please guide me on the next steps.`;
             While you wait, read up on your destinations
           </p>
           <ul className="mt-4 flex flex-wrap justify-center gap-2">
-            {(v.destinations.length
-              ? countries.filter((c) => v.destinations.includes(c.name))
+            {(sent.destinations.length
+              ? countries.filter((c) => sent.destinations.includes(c.name))
               : countries
             ).map((c) => (
               <li key={c.slug}>
@@ -859,13 +863,24 @@ Please guide me on the next steps.`;
         </AnimatePresence>
 
         {status === "error" && serverError && (
-          <p
+          <div
             role="alert"
-            className="mt-6 flex items-start gap-2 rounded-xl bg-red-50 p-3 text-sm text-red-700"
+            className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4"
           >
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
-            {serverError}
-          </p>
+            <p className="flex items-start gap-2 text-sm text-red-700">
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+              {serverError}
+            </p>
+            <a
+              href={waLink(site.whatsapp, waSummaryFor(v))}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn mt-3 w-full bg-[#25D366] py-2.5 text-sm text-white hover:brightness-105"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              Send these details on WhatsApp instead
+            </a>
+          </div>
         )}
 
         {/* ----------------------------------------------- navigation */}
