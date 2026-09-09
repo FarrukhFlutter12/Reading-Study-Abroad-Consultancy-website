@@ -55,17 +55,17 @@ budget is about the source file, not what the visitor downloads.
 
 | ✓ | File | Size | Max | Search query | What makes a good pick |
 |---|---|---|---|---|---|
-| ✅ | `/images/hero/main-hero.jpg` | 1920×1080 | 250 KB | `diverse international students walking university campus` | Diverse students on campus, daylight, not stock-posed. Left third clear for the headline. |
-| ✅ | `/images/hero/hero-mobile.jpg` | 1080×1350 | 200 KB | `asian students university campus together` | Portrait-safe crop of the same scene, subject centred. |
-| ✅ | `/images/about/office-team.jpg` | 1200×800 | 150 KB | `asian advisor student documents desk office` | Advice session, not a sales meeting. Documents visible. |
-| ✅ | `/images/about/counselling-session.jpg` | 1200×800 | 150 KB | `consultant meeting client laptop office asian` | One-to-one, laptop open, both people engaged. |
+| ✅ | `/images/hero/main-hero.jpg` | 1920×1080 | 250 KB | `happy university students group outdoors campus` | Diverse students on campus, daylight, not stock-posed. Left third clear for the headline. |
+| ✅ | `/images/hero/hero-mobile.jpg` | 1080×1350 | 200 KB | `students walking together university campus` | Portrait-safe crop of the same scene, subject centred. |
+| ✅ | `/images/about/office-team.jpg` | 1200×800 | 150 KB | `advisor explaining documents to student office` | Advice session, not a sales meeting. Documents visible. |
+| ✅ | `/images/about/counselling-session.jpg` | 1200×800 | 150 KB | `two people discussing paperwork office desk` | One-to-one, laptop open, both people engaged. |
 | ⬜ | `/images/about/office-exterior.jpg` | 1200×800 | 150 KB | `— CLIENT PHOTO, do not use stock —` | CLIENT PHOTO ONLY — the real office frontage. |
 | ✅ | `/images/sections/students-group.jpg` | 1200×800 | 150 KB | `diverse students studying together library campus` | Collaborative and relaxed. |
-| ✅ | `/images/sections/graduation.jpg` | 1200×800 | 150 KB | `graduation caps thrown air celebration` | Wide shot. Faces should not be individually identifiable — this sits near student stories. |
+| ✅ | `/images/sections/graduation.jpg` | 1200×800 | 150 KB | `graduates celebrating gowns university` | Wide shot. Faces should not be individually identifiable — this sits near student stories. |
 | ✅ | `/images/sections/visa-documents.jpg` | 1200×800 | 150 KB | `passport travel documents desk flat lay` | No legible names or numbers. |
 | ✅ | `/images/sections/lecture-hall.jpg` | 1200×800 | 150 KB | `university lecture hall students seated` | NO university logos, crests or branded signage in frame. |
 | ✅ | `/images/sections/airport-departure.jpg` | 1200×800 | 150 KB | `young traveller luggage airport terminal departure` | Hopeful rather than lonely in tone. |
-| ✅ | `/images/sections/ielts-study.jpg` | 1200×800 | 150 KB | `student headphones studying books desk` | No visible IELTS/PTE branding. |
+| ✅ | `/images/sections/ielts-study.jpg` | 1200×800 | 150 KB | `young adult studying laptop headphones desk` | No visible IELTS/PTE branding. |
 
 ---
 
@@ -75,9 +75,9 @@ Two per country: a wide hero and a tighter card crop.
 
 | ✓ | File | Size | Max | Search query | Note |
 |---|---|---|---|---|---|
-| ✅ | `/images/destinations/uk.jpg` | 1600×900 | 150 KB | `Big Ben and the Houses of Parliament` | Wide crop of Big Ben and the Houses of Parliament. Leave the left third clear for the headline. |
+| ✅ | `/images/destinations/uk.jpg` | 1400×788 | 150 KB | `Big Ben and the Houses of Parliament` | Wide crop of Big Ben and the Houses of Parliament. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/uk-card.jpg` | 800×600 | 80 KB | `the United Kingdom city landmark travel` | Tighter crop that still reads at 400 px wide. |
-| ✅ | `/images/destinations/cyprus.jpg` | 1600×900 | 150 KB | `Mediterranean coastline` | Wide crop of Mediterranean coastline. Leave the left third clear for the headline. |
+| ✅ | `/images/destinations/cyprus.jpg` | 1200×675 | 150 KB | `Mediterranean coastline` | Wide crop of Mediterranean coastline. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/cyprus-card.jpg` | 800×600 | 80 KB | `Cyprus city landmark travel` | Tighter crop that still reads at 400 px wide. |
 | ✅ | `/images/destinations/bulgaria.jpg` | 1600×900 | 150 KB | `Alexander Nevsky Cathedral, Sofia` | Wide crop of Alexander Nevsky Cathedral, Sofia. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/bulgaria-card.jpg` | 800×600 | 80 KB | `Bulgaria city landmark travel` | Tighter crop that still reads at 400 px wide. |
@@ -87,13 +87,13 @@ Two per country: a wide hero and a tighter card crop.
 | ✅ | `/images/destinations/lithuania-card.jpg` | 800×600 | 80 KB | `Lithuania city landmark travel` | Tighter crop that still reads at 400 px wide. |
 | ✅ | `/images/destinations/malta.jpg` | 1600×900 | 150 KB | `Valletta harbour` | Wide crop of Valletta harbour. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/malta-card.jpg` | 800×600 | 80 KB | `Malta city landmark travel` | Tighter crop that still reads at 400 px wide. |
-| ✅ | `/images/destinations/south-korea.jpg` | 1600×900 | 150 KB | `Seoul skyline` | Wide crop of Seoul skyline. Leave the left third clear for the headline. |
+| ✅ | `/images/destinations/south-korea.jpg` | 1400×788 | 150 KB | `Seoul skyline` | Wide crop of Seoul skyline. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/south-korea-card.jpg` | 800×600 | 80 KB | `South Korea city landmark travel` | Tighter crop that still reads at 400 px wide. |
 | ✅ | `/images/destinations/hungary.jpg` | 1600×900 | 150 KB | `The Hungarian Parliament, Budapest` | Wide crop of The Hungarian Parliament, Budapest. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/hungary-card.jpg` | 800×600 | 80 KB | `Hungary city landmark travel` | Tighter crop that still reads at 400 px wide. |
 | ✅ | `/images/destinations/france.jpg` | 1600×900 | 150 KB | `The Eiffel Tower, Paris` | Wide crop of The Eiffel Tower, Paris. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/france-card.jpg` | 800×600 | 80 KB | `France city landmark travel` | Tighter crop that still reads at 400 px wide. |
-| ✅ | `/images/destinations/turkey.jpg` | 1600×900 | 150 KB | `The Blue Mosque, Istanbul` | Wide crop of The Blue Mosque, Istanbul. Leave the left third clear for the headline. |
+| ✅ | `/images/destinations/turkey.jpg` | 1400×788 | 150 KB | `The Blue Mosque, Istanbul` | Wide crop of The Blue Mosque, Istanbul. Leave the left third clear for the headline. |
 | ✅ | `/images/destinations/turkey-card.jpg` | 800×600 | 80 KB | `Turkey city landmark travel` | Tighter crop that still reads at 400 px wide. |
 
 ---

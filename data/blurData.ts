@@ -27,6 +27,7 @@ export const blurData: Record<string, string> = {
   "/images/destinations/south-korea.jpg": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoKAAYAA4BaJYwCdAEO94wXSAD+8r/KDc84UGntdxxXXsPhCl5AwAAA",
   "/images/destinations/south-korea-card.jpg": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoKAAgAA4BaJZQC/OEO9Bhz5cAA/vDSZDifAejp6cuVwIuP5Gm53+6c4AA=",
   "/images/destinations/hungary.jpg": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACQAQCdASoKAAYAA4BaJZQAAlr+lgAA/tXrZpUQcLveY280Rh6VxozjGgDSAEzPgAA=",
+  "/images/destinations/hungary-card.jpg": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoKAAcAA4BaJQBOgCBvWQa2gAD+8zDXmCl1+dQBCYFrKvGNh3nlgLcgOq8ipGyx8am9J3wAAAA=",
   "/images/destinations/france.jpg": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoKAAYAA4BaJQBOgB+E8PNQAADiJuEULTSgZZ3mphkN+MFZqWtKPj+XwZrcZXHd4HIwunBryCByXWJwEwAAAA==",
   "/images/destinations/france-card.jpg": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoKAAcAA4BaJYgCdGuAAs0l+f6gAP6YXYcN4N1tl1optHHUw8ocjiXjyIsZwtymYOYhxkRrlmwFeHK4Cf4AAA==",
   "/images/destinations/turkey.jpg": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoKAAYAA4BaJZwAAu0b+9ZAAP5hanqoHdW052QerD9TgGM4uydj2leaAAA=",

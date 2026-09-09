@@ -135,6 +135,18 @@ export const CORE_SLOTS = [
   },
 ];
 
+/**
+ * Some source photos are dense enough that 1600x900 can't reach the 150KB
+ * budget even at the q60 floor. Rather than crush quality further, these
+ * slugs render at a smaller pixel count — cheaper to shrink than to compress.
+ */
+const HERO_DIMS_OVERRIDE = {
+  uk: [1400, 788],
+  cyprus: [1200, 675],
+  "south-korea": [1400, 788],
+  turkey: [1400, 788],
+};
+
 /** Destination slots, expanded from DESTINATIONS. */
 export const DESTINATION_SLOTS = DESTINATIONS.flatMap(
   ([slug, name, landmark]) => [
@@ -142,8 +154,8 @@ export const DESTINATION_SLOTS = DESTINATIONS.flatMap(
       src: `/images/destinations/${slug}.jpg`,
       query: `${landmark}`,
       orientation: "landscape",
-      width: 1600,
-      height: 900,
+      width: HERO_DIMS_OVERRIDE[slug]?.[0] ?? 1600,
+      height: HERO_DIMS_OVERRIDE[slug]?.[1] ?? 900,
       maxKb: 150,
       note: `Wide crop of ${landmark}. Leave the left third clear for the headline.`,
     },
