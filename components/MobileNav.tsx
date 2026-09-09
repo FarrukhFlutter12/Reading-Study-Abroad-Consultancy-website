@@ -76,11 +76,11 @@ export function MobileNav({ brand }: { brand: BrandAssets }) {
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}
-              className="absolute inset-0 bg-navy-dark/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-brand-dark/70 backdrop-blur-sm"
             />
 
             <motion.div
-              className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-navy-gradient shadow-lift"
+              className="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-brand-gradient shadow-lift"
               initial={reduce ? {} : { x: "100%" }}
               animate={reduce ? {} : { x: 0 }}
               exit={reduce ? {} : { x: "100%" }}
@@ -248,7 +248,7 @@ export function MobileNav({ brand }: { brand: BrandAssets }) {
               </nav>
 
               {/* Pinned actions */}
-              <div className="space-y-2 border-t border-white/10 bg-navy-dark/60 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+              <div className="space-y-2 border-t border-white/10 bg-brand-dark/60 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
                 <Link
                   href="/free-assessment"
                   className="btn-gold w-full py-3.5 text-base"

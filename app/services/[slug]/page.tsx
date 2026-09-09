@@ -9,7 +9,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SmartImage } from "@/components/SmartImage";
 import { serviceBySlug, services } from "@/data/services";
+import { serviceImages } from "@/data/images";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
@@ -39,11 +41,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   if (!s) notFound();
 
   const others = services.filter((x) => x.slug !== s.slug).slice(0, 3);
+  // Only some services have a genuinely matching photograph; the rest keep the
+  // plain brand hero rather than being given a loosely-related stock image.
+  const shot = serviceImages[s.slug];
 
   return (
     <>
       {/* --------------------------------------------------------- hero */}
-      <section className="relative overflow-hidden bg-navy-gradient">
+      <section className="relative overflow-hidden bg-brand-gradient">
+        {shot && <SmartImage slot={shot} overlay="strong" sizes="100vw" blur />}
         <span
           aria-hidden
           className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"
@@ -61,7 +67,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             ]}
           />
 
-          <span className="mt-8 grid h-14 w-14 place-items-center rounded-2xl bg-gold text-navy-dark shadow-chip">
+          <span className="mt-8 grid h-14 w-14 place-items-center rounded-2xl bg-gold text-brand-dark shadow-chip">
             <Icon name={s.icon} className="h-7 w-7" strokeWidth={2} />
           </span>
 
@@ -107,7 +113,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 eyebrow="Included"
                 title="What you get"
               />
-              <div className="mt-6 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+              <div className="mt-6 rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
                 <CheckList items={s.included} />
               </div>
             </Reveal>
@@ -122,7 +128,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {s.forWhom.map((w) => (
                   <li
                     key={w}
-                    className="rounded-2xl border border-navy/10 bg-white p-5 text-sm leading-relaxed text-ink/80 shadow-card"
+                    className="rounded-2xl border border-brand/10 bg-white p-5 text-sm leading-relaxed text-ink/80 shadow-card"
                   >
                     {w}
                   </li>
@@ -140,13 +146,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 {s.steps.map((st, i) => (
                   <li
                     key={st.title}
-                    className="flex gap-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-card sm:p-6"
+                    className="flex gap-4 rounded-2xl border border-brand/10 bg-white p-5 shadow-card sm:p-6"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-navy font-display text-sm font-bold text-gold">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand font-display text-sm font-bold text-gold">
                       {i + 1}
                     </span>
                     <span>
-                      <span className="block font-display text-base font-semibold text-navy">
+                      <span className="block font-display text-base font-semibold text-brand">
                         {st.title}
                       </span>
                       <span className="mt-1.5 block text-sm leading-relaxed text-ink/75">
@@ -199,7 +205,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               </RevealItem>
             ))}
           </RevealGroup>
-          <Link href="/services" className="btn-outline-navy mt-8 inline-flex">
+          <Link href="/services" className="btn-outline-brand mt-8 inline-flex">
             All ten services
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>

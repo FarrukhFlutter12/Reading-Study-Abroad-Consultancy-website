@@ -22,17 +22,34 @@ const WA_MESSAGE =
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy-gradient">
-      {/* Campus photography sits behind everything, under a strong navy wash so
-          the headline keeps its contrast whichever photo is dropped in.
-          Falls back to the brand gradient until the file exists. */}
-      <SmartImage
-        slot={images.hero.main}
-        priority
-        blur
-        overlay="strong"
-        sizes="100vw"
-      />
+    <section className="relative overflow-hidden bg-brand-gradient">
+      {/* Campus photography sits behind everything, under a strong brand-purple
+          wash so the headline keeps its contrast whichever photo is dropped in.
+          Falls back to the brand gradient until the file exists.
+
+          Art direction: the landscape crop loses its subjects on a narrow
+          screen, so a portrait-safe version takes over below `sm`. Both are
+          hidden with CSS rather than swapped in JS, so the right one is chosen
+          before hydration — and `sizes` keeps the browser from fetching the
+          desktop file on a phone. */}
+      <span className="sm:hidden">
+        <SmartImage
+          slot={images.hero.mobile}
+          priority
+          blur
+          overlay="strong"
+          sizes="100vw"
+        />
+      </span>
+      <span className="hidden sm:block">
+        <SmartImage
+          slot={images.hero.main}
+          priority
+          blur
+          overlay="strong"
+          sizes="100vw"
+        />
+      </span>
 
       {/* world-map dot pattern */}
       <span
@@ -152,7 +169,7 @@ export function Hero() {
                     priority={i < 5}
                   />
                 </span>
-                <span className="rounded-full bg-navy-dark/70 px-2.5 py-1 text-center text-[9.5px] font-bold uppercase leading-tight tracking-wider text-white transition-colors group-hover:bg-gold group-hover:text-navy-dark sm:text-[10px]">
+                <span className="rounded-full bg-brand-dark/70 px-2.5 py-1 text-center text-[9.5px] font-bold uppercase leading-tight tracking-wider text-white transition-colors group-hover:bg-gold group-hover:text-brand-dark sm:text-[10px]">
                   {c.name === "United Kingdom" ? "UK" : c.name}
                 </span>
               </Link>

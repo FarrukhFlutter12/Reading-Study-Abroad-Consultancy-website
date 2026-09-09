@@ -40,7 +40,7 @@ export default function BlogPostPage({
   return (
     <>
       {/* --------------------------------------------------------- hero */}
-      <section className="relative overflow-hidden bg-navy-gradient">
+      <section className="relative overflow-hidden bg-brand-gradient">
         <span
           aria-hidden
           className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"
@@ -73,14 +73,14 @@ export default function BlogPostPage({
       <section className="bg-cream py-14 lg:py-20">
         <div className="container-page grid gap-10 lg:grid-cols-[1fr_340px] lg:items-start lg:gap-14">
           <article className="min-w-0">
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-9">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-9">
               {post.body.map((block, i) => (
                 <BlockRenderer key={i} block={block} />
               ))}
 
               <div className="mt-10 rounded-xl bg-cream p-5 text-sm leading-relaxed text-ink/70">
                 <p>
-                  <strong className="text-navy">A note on specifics:</strong>{" "}
+                  <strong className="text-brand">A note on specifics:</strong>{" "}
                   entry requirements, financial thresholds and processing times
                   change every intake, so this guide deliberately avoids quoting
                   them. For the current figures that apply to your case,{" "}
@@ -206,7 +206,7 @@ function BlockRenderer({ block }: { block: Block }) {
               key={it}
               className="flex gap-3 text-[15px] leading-relaxed text-ink/80"
             >
-              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-navy font-display text-[11px] font-bold text-gold">
+              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand font-display text-[11px] font-bold text-gold">
                 {i + 1}
               </span>
               {it}
@@ -218,7 +218,7 @@ function BlockRenderer({ block }: { block: Block }) {
     case "callout":
       return (
         <aside className="mt-7 rounded-xl border-l-4 border-gold bg-gold/10 p-5">
-          <p className="flex items-center gap-2 font-display text-sm font-semibold text-navy">
+          <p className="flex items-center gap-2 font-display text-sm font-semibold text-brand">
             <Info className="h-4 w-4 text-gold-dark" aria-hidden />
             {block.title}
           </p>

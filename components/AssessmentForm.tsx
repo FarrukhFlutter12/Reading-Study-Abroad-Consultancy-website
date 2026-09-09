@@ -285,7 +285,7 @@ Please guide me on the next steps.`;
     return (
       <div
         id="assessment-top"
-        className="rounded-2xl border border-navy/10 bg-white p-7 text-center shadow-card sm:p-10"
+        className="rounded-2xl border border-brand/10 bg-white p-7 text-center shadow-card sm:p-10"
       >
         <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold/20 text-gold-dark">
           <CheckCircle2 className="h-9 w-9" strokeWidth={2} aria-hidden />
@@ -297,15 +297,15 @@ Please guide me on the next steps.`;
         <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-ink/75">
           Your details have reached our Hayatabad office. A counsellor will
           review your academic profile against your chosen destinations and
-          contact you <strong className="text-navy">within 24 hours</strong> on{" "}
-          <span className="whitespace-nowrap font-medium text-navy">
+          contact you <strong className="text-brand">within 24 hours</strong> on{" "}
+          <span className="whitespace-nowrap font-medium text-brand">
             {sent.phone}
           </span>
           .
         </p>
 
         <div className="mx-auto mt-6 max-w-lg rounded-xl bg-cream p-4 text-left text-sm text-ink/75">
-          <p className="font-semibold text-navy">Keep this for reference</p>
+          <p className="font-semibold text-brand">Keep this for reference</p>
           <p className="mt-1.5 leading-relaxed">
             We do not issue reference numbers — your phone number and email are
             how we locate your file. If you contact us before we reach you,
@@ -325,8 +325,8 @@ Please guide me on the next steps.`;
           </a>
         </div>
 
-        <div className="mt-10 border-t border-navy/10 pt-8">
-          <p className="text-sm font-semibold text-navy">
+        <div className="mt-10 border-t border-brand/10 pt-8">
+          <p className="text-sm font-semibold text-brand">
             While you wait, read up on your destinations
           </p>
           <ul className="mt-4 flex flex-wrap justify-center gap-2">
@@ -337,7 +337,7 @@ Please guide me on the next steps.`;
               <li key={c.slug}>
                 <Link
                   href={`/destinations/${c.slug}`}
-                  className="inline-flex rounded-full border border-navy/15 bg-white px-4 py-2 text-sm font-medium text-navy transition-colors hover:border-gold hover:bg-gold/10"
+                  className="inline-flex rounded-full border border-brand/15 bg-white px-4 py-2 text-sm font-medium text-brand transition-colors hover:border-gold hover:bg-gold/10"
                 >
                   {c.name}
                 </Link>
@@ -369,7 +369,7 @@ Please guide me on the next steps.`;
           <span>{Math.round(progress)}%</span>
         </div>
         <div
-          className="mt-2.5 h-2 overflow-hidden rounded-full bg-navy/10"
+          className="mt-2.5 h-2 overflow-hidden rounded-full bg-brand/10"
           role="progressbar"
           aria-valuenow={step + 1}
           aria-valuemin={1}
@@ -391,8 +391,8 @@ Please guide me on the next steps.`;
               className={cn(
                 "border-t-2 pt-2 text-xs font-medium transition-colors",
                 i <= step
-                  ? "border-gold text-navy"
-                  : "border-navy/10 text-ink/45",
+                  ? "border-gold text-brand"
+                  : "border-brand/10 text-ink/45",
               )}
             >
               {label}
@@ -404,7 +404,7 @@ Please guide me on the next steps.`;
       <form
         onSubmit={onSubmit}
         noValidate
-        className="rounded-2xl border border-navy/10 bg-white p-5 shadow-card sm:p-8"
+        className="rounded-2xl border border-brand/10 bg-white p-5 shadow-card sm:p-8"
       >
         {/* honeypot */}
         <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
@@ -433,7 +433,7 @@ Please guide me on the next steps.`;
             {/* ------------------------------------------- step 1 */}
             {step === 0 && (
               <fieldset>
-                <legend className="mb-1 font-display text-xl font-semibold text-navy">
+                <legend className="mb-1 font-display text-xl font-semibold text-brand">
                   Tell us about yourself
                 </legend>
                 <p className="mb-6 text-sm text-ink/65">
@@ -501,7 +501,7 @@ Please guide me on the next steps.`;
             {/* ------------------------------------------- step 2 */}
             {step === 1 && (
               <fieldset>
-                <legend className="mb-1 font-display text-xl font-semibold text-navy">
+                <legend className="mb-1 font-display text-xl font-semibold text-brand">
                   Your academic background
                 </legend>
                 <p className="mb-6 text-sm text-ink/65">
@@ -621,7 +621,7 @@ Please guide me on the next steps.`;
             {/* ------------------------------------------- step 3 */}
             {step === 2 && (
               <fieldset>
-                <legend className="mb-1 font-display text-xl font-semibold text-navy">
+                <legend className="mb-1 font-display text-xl font-semibold text-brand">
                   Where would you like to study?
                 </legend>
                 <p className="mb-6 text-sm text-ink/65">
@@ -649,8 +649,8 @@ Please guide me on the next steps.`;
                           className={cn(
                             "rounded-xl border px-3 py-2.5 text-left text-sm font-medium transition-all",
                             on
-                              ? "border-gold bg-gold/15 text-navy"
-                              : "border-navy/15 bg-white text-ink/75 hover:border-gold/50 hover:bg-cream",
+                              ? "border-gold bg-gold/15 text-brand"
+                              : "border-brand/15 bg-white text-ink/75 hover:border-gold/50 hover:bg-cream",
                           )}
                         >
                           {c.name}
@@ -736,7 +736,7 @@ Please guide me on the next steps.`;
             {/* ------------------------------------------- step 4 */}
             {step === 3 && (
               <fieldset>
-                <legend className="mb-1 font-display text-xl font-semibold text-navy">
+                <legend className="mb-1 font-display text-xl font-semibold text-brand">
                   A few final details
                 </legend>
                 <p className="mb-6 text-sm text-ink/65">
@@ -884,9 +884,9 @@ Please guide me on the next steps.`;
         )}
 
         {/* ----------------------------------------------- navigation */}
-        <div className="mt-8 flex flex-col-reverse gap-3 border-t border-navy/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col-reverse gap-3 border-t border-brand/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           {step > 0 ? (
-            <button type="button" onClick={back} className="btn-outline-navy">
+            <button type="button" onClick={back} className="btn-outline-brand">
               <ArrowLeft className="h-4 w-4" aria-hidden />
               Back
             </button>

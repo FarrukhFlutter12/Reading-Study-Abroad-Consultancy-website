@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  * the file is somehow missing — the site must never show a broken image.
  *
  * Callers pass the asset in (resolved server-side by lib/brandAssets.ts) so this
- * works in both server and client trees. Pick the asset by BACKGROUND: navy
+ * works in both server and client trees. Pick the asset by BACKGROUND: dark
  * surfaces get `onDark`, light and gold surfaces get `onLight`.
  *
  * Sizing rule: height comes from CSS, width is always auto with object-contain,
@@ -25,7 +25,7 @@ export function Logo({
 }: {
   /** From getBrandAssets(); null renders the text lockup. */
   asset?: LogoAsset | null;
-  /** Only affects the text-lockup fallback: "dark" = for navy backgrounds. */
+  /** Only affects the text-lockup fallback: "dark" = for brand-purple backgrounds. */
   variant?: "light" | "dark";
   /** Tailwind height + w-auto. Never set a fixed width alongside it. */
   sizeClass?: string;
@@ -49,7 +49,7 @@ export function Logo({
       <span
         className={cn(
           "font-display text-[22px] font-bold tracking-[0.06em] sm:text-2xl",
-          onDark ? "text-white" : "text-navy",
+          onDark ? "text-white" : "text-brand",
         )}
       >
         READING

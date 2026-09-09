@@ -79,14 +79,14 @@ function load(publicPath: string): LogoAsset | null {
 export type BrandAssets = {
   /** Wide lockup for light/cream/gold backgrounds. */
   onLight: LogoAsset | null;
-  /** Wide lockup for navy backgrounds. */
+  /** Wide lockup for brand-purple backgrounds. */
   onDark: LogoAsset | null;
   /** Stacked lockup, for surfaces with vertical room (footer). */
   stackedOnLight: LogoAsset | null;
   stackedOnDark: LogoAsset | null;
   /** Icon mark only — colour. */
   mark: LogoAsset | null;
-  /** Icon mark only — gold, for navy backgrounds. */
+  /** Icon mark only — gold, for brand-purple backgrounds. */
   markOnDark: LogoAsset | null;
 };
 

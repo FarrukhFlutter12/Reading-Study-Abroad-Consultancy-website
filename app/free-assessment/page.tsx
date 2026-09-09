@@ -29,7 +29,7 @@ export default function FreeAssessmentPage() {
 
           {/* --------------------------------------------- sidebar */}
           <aside className="space-y-5 lg:sticky lg:top-28">
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
               <h2 className="text-lg">What happens next</h2>
               <ol className="mt-4 space-y-4">
                 {[
@@ -51,7 +51,7 @@ export default function FreeAssessmentPage() {
                       {i + 1}
                     </span>
                     <span>
-                      <span className="block text-sm font-semibold text-navy">
+                      <span className="block text-sm font-semibold text-brand">
                         {s.t}
                       </span>
                       <span className="mt-1 block text-sm leading-relaxed text-ink/70">
@@ -63,7 +63,7 @@ export default function FreeAssessmentPage() {
               </ol>
             </div>
 
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
               <h2 className="text-lg">Have your details ready</h2>
               <CheckList
                 className="mt-4"
@@ -77,7 +77,7 @@ export default function FreeAssessmentPage() {
               />
             </div>
 
-            <div className="rounded-2xl bg-navy-gradient p-6 text-white">
+            <div className="rounded-2xl bg-brand-gradient p-6 text-white">
               <h2 className="text-lg text-white">Prefer to talk first?</h2>
               <p className="mt-2 text-sm leading-relaxed text-white/75">
                 Walk into our Hayatabad office or call us. The first counselling

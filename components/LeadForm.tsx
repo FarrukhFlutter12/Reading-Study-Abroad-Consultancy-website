@@ -214,7 +214,7 @@ Highest Qualification: ${val.qualification}${
           </a>
           <Link
             href="/destinations"
-            className={onDark ? "btn-outline-light" : "btn-outline-navy"}
+            className={onDark ? "btn-outline-light" : "btn-outline-brand"}
           >
             Explore destinations
           </Link>
@@ -239,7 +239,7 @@ Highest Qualification: ${val.qualification}${
         "rounded-2xl border p-5 sm:p-6",
         onDark
           ? "border-white/15 bg-white/5 backdrop-blur"
-          : "border-navy/10 bg-white shadow-card",
+          : "border-brand/10 bg-white shadow-card",
         className,
       )}
     >

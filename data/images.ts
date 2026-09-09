@@ -2,7 +2,7 @@
  * Single source of truth for every photographic slot on the site.
  *
  * The files themselves may not exist yet. <SmartImage> checks at build time and
- * falls back to a branded navy→gold gradient block, so a missing photo never
+ * falls back to a branded purple→gold gradient block, so a missing photo never
  * shows a broken image — it just looks like a deliberate brand panel. Drop the
  * real file in at the path below and it appears automatically, no code change.
  *
@@ -160,6 +160,17 @@ export const images = {
     turkey: dest("turkey", "Turkey", "The Blue Mosque, Istanbul"),
   } as Record<string, { hero: ImageSlot; card: ImageSlot }>,
 } as const;
+
+/**
+ * Which section photograph heads each service page. Only the services with a
+ * genuinely matching image appear here; the rest keep the plain brand hero.
+ */
+export const serviceImages: Record<string, ImageSlot> = {
+  "visa-guidance": images.sections.visaDocuments,
+  "post-arrival": images.sections.airportDeparture,
+  "test-preparation": images.sections.ieltsStudy,
+  "university-selection": images.sections.lectureHall,
+};
 
 /** Flattened list, used to generate the sourcing checklist. */
 export function allImageSlots(): ImageSlot[] {

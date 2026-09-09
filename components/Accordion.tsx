@@ -21,7 +21,7 @@ export function Accordion({
   const uid = useId();
 
   return (
-    <div className={cn("divide-y divide-navy/10 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-card", className)}>
+    <div className={cn("divide-y divide-brand/10 overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-card", className)}>
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -35,15 +35,15 @@ export function Accordion({
                 id={`${uid}-btn-${i}`}
                 className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-cream sm:px-6 sm:py-5"
               >
-                <span className="font-display text-[15px] font-semibold leading-snug text-navy sm:text-base">
+                <span className="font-display text-[15px] font-semibold leading-snug text-brand sm:text-base">
                   {item.q}
                 </span>
                 <span
                   className={cn(
                     "mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full transition-all duration-200",
                     isOpen
-                      ? "rotate-45 bg-gold text-navy-dark"
-                      : "bg-navy/10 text-navy",
+                      ? "rotate-45 bg-gold text-brand-dark"
+                      : "bg-brand/10 text-brand",
                   )}
                   aria-hidden
                 >

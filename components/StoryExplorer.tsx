@@ -44,8 +44,8 @@ export function StoryExplorer({ items }: { items: Testimonial[] }) {
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-medium transition-all",
               country === "all"
-                ? "border-gold bg-gold/15 text-navy"
-                : "border-navy/15 bg-white text-ink/75 hover:border-gold/50",
+                ? "border-gold bg-gold/15 text-brand"
+                : "border-brand/15 bg-white text-ink/75 hover:border-gold/50",
             )}
           >
             All destinations
@@ -59,8 +59,8 @@ export function StoryExplorer({ items }: { items: Testimonial[] }) {
               className={cn(
                 "rounded-full border px-4 py-2 text-sm font-medium transition-all",
                 country === c.slug
-                  ? "border-gold bg-gold/15 text-navy"
-                  : "border-navy/15 bg-white text-ink/75 hover:border-gold/50",
+                  ? "border-gold bg-gold/15 text-brand"
+                  : "border-brand/15 bg-white text-ink/75 hover:border-gold/50",
               )}
             >
               {c.name}

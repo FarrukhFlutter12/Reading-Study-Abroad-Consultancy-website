@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Accordion } from "@/components/Accordion";
 import { CTABand, CheckList, PageHero } from "@/components/Blocks";
 import { JsonLd } from "@/components/JsonLd";
+import { images } from "@/data/images";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -97,6 +98,7 @@ export default function TestPreparationPage() {
         title="IELTS, PTE & Duolingo — Which Should You Take?"
         subtitle="Booking a test before checking which one your universities and embassy accept is one of the most expensive mistakes students make. Here is how the three compare, and how to prepare properly."
         crumbs={[{ label: "Test Preparation", href: "/test-preparation" }]}
+        image={images.sections.ieltsStudy}
       />
 
       {/* --------------------------------------------------- comparison */}
@@ -115,7 +117,7 @@ export default function TestPreparationPage() {
             {TESTS.map((t) => (
               <RevealItem
                 key={t.name}
-                className="flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7"
+                className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7"
               >
                 <span className="inline-flex w-fit rounded-full bg-gold/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold-dark">
                   {t.tag}
@@ -124,14 +126,14 @@ export default function TestPreparationPage() {
                 <p className="mt-3 text-sm leading-relaxed text-ink/75">
                   {t.body}
                 </p>
-                <div className="mt-5 border-t border-navy/10 pt-5">
+                <div className="mt-5 border-t border-brand/10 pt-5">
                   <CheckList items={t.points} />
                 </div>
               </RevealItem>
             ))}
           </RevealGroup>
 
-          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl bg-navy-gradient p-6 text-center sm:p-8">
+          <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl bg-brand-gradient p-6 text-center sm:p-8">
             <p className="text-sm leading-relaxed text-white/85">
               <strong className="text-gold">Ask one question first:</strong> do
               my target universities and my destination embassy accept this
@@ -186,7 +188,7 @@ export default function TestPreparationPage() {
               eyebrow="Preparation"
               title="How to Prepare Properly"
             />
-            <div className="mt-6 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+            <div className="mt-6 rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
               <CheckList items={PREP} />
             </div>
           </Reveal>

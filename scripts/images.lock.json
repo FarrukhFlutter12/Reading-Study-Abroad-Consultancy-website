@@ -1,0 +1,182 @@
+{
+  "/images/sections/students-group.jpg": {
+    "id": 5940844,
+    "photographer": "Kampus Production",
+    "url": "https://www.pexels.com/photo/multiethnic-students-doing-research-together-in-library-5940844/",
+    "query": "diverse students studying together library campus"
+  },
+  "/images/sections/visa-documents.jpg": {
+    "id": 346793,
+    "photographer": "Porapak Apichodilok",
+    "url": "https://www.pexels.com/photo/gray-passport-on-brown-board-beside-red-plane-toy-346793/",
+    "query": "passport travel documents desk flat lay"
+  },
+  "/images/sections/lecture-hall.jpg": {
+    "id": 8197513,
+    "photographer": "Yan Krukau",
+    "url": "https://www.pexels.com/photo/professor-in-black-turtleneck-sweater-holding-silver-macbook-in-classroom-8197513/",
+    "query": "university lecture hall students seated"
+  },
+  "/images/sections/airport-departure.jpg": {
+    "id": 12717154,
+    "photographer": "AirTeo | Air Travel",
+    "url": "https://www.pexels.com/photo/people-standing-near-airport-departure-board-12717154/",
+    "query": "young traveller luggage airport terminal departure"
+  },
+  "/images/destinations/uk.jpg": {
+    "id": 38470144,
+    "photographer": "Emre Bilgiç",
+    "url": "https://www.pexels.com/photo/iconic-big-ben-and-parliament-in-london-framed-by-trees-38470144/",
+    "query": "Big Ben and the Houses of Parliament"
+  },
+  "/images/destinations/uk-card.jpg": {
+    "id": 36033653,
+    "photographer": "Diego  HG",
+    "url": "https://www.pexels.com/photo/iconic-tower-bridge-in-london-on-a-sunny-day-36033653/",
+    "query": "the United Kingdom city landmark travel"
+  },
+  "/images/destinations/cyprus.jpg": {
+    "id": 9175307,
+    "photographer": "Вітковський Денис",
+    "url": "https://www.pexels.com/photo/rock-cliffs-near-blue-ocean-9175307/",
+    "query": "Mediterranean coastline"
+  },
+  "/images/destinations/cyprus-card.jpg": {
+    "id": 6222668,
+    "photographer": "Mehmet Turgut  Kirkgoz",
+    "url": "https://www.pexels.com/photo/trees-near-a-building-6222668/",
+    "query": "Cyprus city landmark travel"
+  },
+  "/images/destinations/bulgaria.jpg": {
+    "id": 28915268,
+    "photographer": "Pham Ngoc Anh",
+    "url": "https://www.pexels.com/photo/stunning-view-of-alexander-nevsky-cathedral-28915268/",
+    "query": "Alexander Nevsky Cathedral, Sofia"
+  },
+  "/images/destinations/bulgaria-card.jpg": {
+    "id": 12204346,
+    "photographer": "Denitsa Kireva",
+    "url": "https://www.pexels.com/photo/roman-theater-of-philippopolis-in-plovdiv-in-bulgaria-12204346/",
+    "query": "Bulgaria city landmark travel"
+  },
+  "/images/destinations/italy.jpg": {
+    "id": 32619390,
+    "photographer": "Hao Chen",
+    "url": "https://www.pexels.com/photo/colosseum-in-rome-against-a-clear-blue-sky-32619390/",
+    "query": "The Colosseum, Rome"
+  },
+  "/images/destinations/italy-card.jpg": {
+    "id": 6220442,
+    "photographer": "Tom D'Arby",
+    "url": "https://www.pexels.com/photo/ancient-colosseum-building-ruins-6220442/",
+    "query": "Italy city landmark travel"
+  },
+  "/images/destinations/malta.jpg": {
+    "id": 36901145,
+    "photographer": "Valentina Bešker",
+    "url": "https://www.pexels.com/photo/scenic-view-of-vittoriosa-marina-with-historic-buildings-36901145/",
+    "query": "Valletta harbour"
+  },
+  "/images/destinations/malta-card.jpg": {
+    "id": 17745127,
+    "photographer": "Denisa Lesniaková",
+    "url": "https://www.pexels.com/photo/walls-on-sea-coast-of-valletta-in-malta-17745127/",
+    "query": "Malta city landmark travel"
+  },
+  "/images/destinations/south-korea.jpg": {
+    "id": 3142002,
+    "photographer": "Ethan Brooke",
+    "url": "https://www.pexels.com/photo/city-skyline-during-night-time-3142002/",
+    "query": "Seoul skyline"
+  },
+  "/images/destinations/south-korea-card.jpg": {
+    "id": 29343916,
+    "photographer": "Angelina Rodionow",
+    "url": "https://www.pexels.com/photo/seoul-night-skyline-featuring-lotte-world-tower-29343916/",
+    "query": "South Korea city landmark travel"
+  },
+  "/images/destinations/hungary-card.jpg": {
+    "id": 16451141,
+    "photographer": "Incze Sándor Zoltán",
+    "url": "https://www.pexels.com/photo/illuminated-buda-castle-seen-from-the-river-danube-in-budapest-hungary-16451141/",
+    "query": "Hungary city landmark travel"
+  },
+  "/images/destinations/france-card.jpg": {
+    "id": 15452267,
+    "photographer": "Diego F. Parra",
+    "url": "https://www.pexels.com/photo/clear-sky-over-paris-with-eiffel-tower-15452267/",
+    "query": "France city landmark travel"
+  },
+  "/images/destinations/turkey.jpg": {
+    "id": 28000155,
+    "photographer": "S4met Kocaman",
+    "url": "https://www.pexels.com/photo/blue-mosque-sultan-ahmet-mosque-28000155/",
+    "query": "The Blue Mosque, Istanbul"
+  },
+  "/images/destinations/turkey-card.jpg": {
+    "id": 18822672,
+    "photographer": "Rasul Yarichev",
+    "url": "https://www.pexels.com/photo/cityscape-of-istanbul-with-view-of-the-galata-tower-18822672/",
+    "query": "Turkey city landmark travel"
+  },
+  "/images/hero/main-hero.jpg": {
+    "id": 7683910,
+    "photographer": "RDNE Stock project",
+    "url": "https://www.pexels.com/photo/college-students-standing-close-together-7683910/",
+    "query": "happy university students group outdoors campus"
+  },
+  "/images/hero/hero-mobile.jpg": {
+    "id": 7683887,
+    "photographer": "RDNE Stock project",
+    "url": "https://www.pexels.com/photo/a-group-of-college-students-walking-at-the-campus-7683887/",
+    "query": "students walking together university campus"
+  },
+  "/images/about/office-team.jpg": {
+    "id": 7821671,
+    "photographer": "RDNE Stock project",
+    "url": "https://www.pexels.com/photo/an-agent-showing-documents-to-his-client-7821671/",
+    "query": "advisor explaining documents to student office"
+  },
+  "/images/about/counselling-session.jpg": {
+    "id": 7693757,
+    "photographer": "Yan Krukau",
+    "url": "https://www.pexels.com/photo/men-working-in-an-office-7693757/",
+    "query": "two people discussing paperwork office desk"
+  },
+  "/images/sections/graduation.jpg": {
+    "id": 8092999,
+    "photographer": "olia danilevich",
+    "url": "https://www.pexels.com/photo/people-wearing-graduation-gowns-taking-a-groupie-8092999/",
+    "query": "graduates celebrating gowns university"
+  },
+  "/images/sections/ielts-study.jpg": {
+    "id": 5877669,
+    "photographer": "https://kaboompics.com/",
+    "url": "https://www.pexels.com/photo/girl-sitting-at-desk-and-using-laptop-5877669/",
+    "query": "young adult studying laptop headphones desk"
+  },
+  "/images/destinations/lithuania.jpg": {
+    "id": 227393,
+    "photographer": "Dom J",
+    "url": "https://www.pexels.com/photo/concrete-building-photo-227393/",
+    "query": "Vilnius old town"
+  },
+  "/images/destinations/lithuania-card.jpg": {
+    "id": 34593856,
+    "photographer": "Suphot Punnachaiya",
+    "url": "https://www.pexels.com/photo/trakai-island-castle-in-spring-reflection-34593856/",
+    "query": "Lithuania city landmark travel"
+  },
+  "/images/destinations/hungary.jpg": {
+    "id": 3954641,
+    "photographer": "NicolÃ¡s Perondi",
+    "url": "https://www.pexels.com/photo/building-near-body-of-water-under-cloudy-sky-3954641/",
+    "query": "The Hungarian Parliament, Budapest"
+  },
+  "/images/destinations/france.jpg": {
+    "id": 29667766,
+    "photographer": "Stephen Leonardi",
+    "url": "https://www.pexels.com/photo/eiffel-tower-in-paris-under-a-clear-sky-29667766/",
+    "query": "The Eiffel Tower, Paris"
+  }
+}

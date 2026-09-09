@@ -5,7 +5,7 @@ import { Printer } from "lucide-react";
 /** Opens the browser print dialog so students can keep a paper checklist. */
 export function PrintButton({
   label = "Print this checklist",
-  className = "btn-outline-navy no-print",
+  className = "btn-outline-brand no-print",
 }: {
   label?: string;
   className?: string;

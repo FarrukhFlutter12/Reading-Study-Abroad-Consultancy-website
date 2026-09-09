@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
 import type { Country } from "@/data/countries";
+import { images } from "@/data/images";
 import type { Service } from "@/data/services";
 import type { Testimonial } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 import { Icon } from "./Icon";
 import { RevealGroup, RevealItem } from "./Reveal";
+import { SmartImage } from "./SmartImage";
 
 /* --------------------------------------------------------------- country */
 
@@ -14,19 +16,28 @@ export function CountryCard({ country }: { country: Country }) {
   return (
     <Link
       href={`/destinations/${country.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
     >
-      <span className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-white shadow-chip ring-1 ring-navy/10">
-        <Image
-          src={country.flag}
-          alt={`Flag of ${country.name}`}
-          fill
-          sizes="56px"
-          className="object-cover"
+      {/* Photo band. Falls back to the brand panel until a photo is supplied. */}
+      <span className="relative block aspect-[16/9] w-full">
+        <SmartImage
+          slot={images.destinations[country.slug].card}
+          overlay="soft"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
+        <span className="absolute bottom-3 left-3 h-11 w-11 overflow-hidden rounded-full border-2 border-white shadow-chip">
+          <Image
+            src={country.flag}
+            alt={`Flag of ${country.name}`}
+            fill
+            sizes="44px"
+            className="object-cover"
+          />
+        </span>
       </span>
 
-      <h3 className="mt-5 text-lg transition-colors group-hover:text-gold-dark">
+      <div className="flex flex-1 flex-col p-6">
+      <h3 className="text-lg transition-colors group-hover:text-gold-dark">
         {country.name}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/70">
@@ -40,6 +51,7 @@ export function CountryCard({ country }: { country: Country }) {
           aria-hidden
         />
       </span>
+      </div>
     </Link>
   );
 }
@@ -63,9 +75,9 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
+      className="group flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
     >
-      <span className="grid h-12 w-12 place-items-center rounded-xl bg-navy text-gold transition-colors group-hover:bg-gold group-hover:text-navy-dark">
+      <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand text-gold transition-colors group-hover:bg-gold group-hover:text-brand-dark">
         <Icon name={service.icon} className="h-6 w-6" />
       </span>
 
@@ -103,7 +115,7 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "h-full rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lift",
+        "h-full rounded-2xl border border-brand/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lift",
         className,
       )}
     >
@@ -120,14 +132,14 @@ export function FeatureCard({
 
 export function TestimonialCard({ item }: { item: Testimonial }) {
   return (
-    <figure className="flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+    <figure className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
       <Quote className="h-7 w-7 text-gold" strokeWidth={1.5} aria-hidden />
       <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
         “{item.quote}”
       </blockquote>
-      <figcaption className="mt-5 flex items-center gap-3 border-t border-navy/10 pt-5">
+      <figcaption className="mt-5 flex items-center gap-3 border-t border-brand/10 pt-5">
         {item.photo && (
-          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-navy/10">
+          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-brand/10">
             <Image
               src={item.photo}
               alt={item.name}
@@ -138,7 +150,7 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
           </span>
         )}
         <span>
-          <span className="block text-sm font-semibold text-navy">
+          <span className="block text-sm font-semibold text-brand">
             {item.name}
           </span>
           <span className="block text-xs text-ink/60">
@@ -173,9 +185,9 @@ export function PostCard({
     <article className="group h-full">
       <Link
         href={`/blog/${slug}`}
-        className="flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
+        className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift"
       >
-        <span className="inline-flex w-fit rounded-full bg-navy/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-navy">
+        <span className="inline-flex w-fit rounded-full bg-brand/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand">
           {category}
         </span>
         <h3 className="mt-4 text-lg leading-snug transition-colors group-hover:text-gold-dark">

@@ -72,8 +72,8 @@ export function Header({ brand }: { brand: BrandAssets }) {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "bg-navy/95 shadow-lift backdrop-blur-md"
-          : "bg-navy shadow-none",
+          ? "bg-brand/95 shadow-lift backdrop-blur-md"
+          : "bg-brand shadow-none",
       )}
     >
       <div
@@ -82,8 +82,8 @@ export function Header({ brand }: { brand: BrandAssets }) {
           scrolled ? "h-[64px]" : "h-[76px]",
         )}
       >
-        {/* Contrast rule: this header is navy at BOTH scroll states
-            (bg-navy -> bg-navy/95), so the gold on-dark lockup is correct
+        {/* Contrast rule: this header is brand purple at BOTH scroll states
+            (bg-brand -> bg-brand/95), so the gold on-dark lockup is correct
             throughout — there is no light background to swap for. `scrolled`
             only drives the size change. If the header is ever made transparent
             over a light hero, swap to brand.onLight on that same flag. */}
@@ -142,7 +142,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                     {...panelMotion}
                     className="absolute left-1/2 top-full w-[720px] -translate-x-1/2 pt-3"
                   >
-                    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white p-5 shadow-lift">
+                    <div className="overflow-hidden rounded-2xl border border-brand/10 bg-white p-5 shadow-lift">
                       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
                         Ten study destinations
                       </p>
@@ -153,7 +153,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                               href={`/destinations/${c.slug}`}
                               className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-cream"
                             >
-                              <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-navy/10 shadow-chip">
+                              <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-brand/10 shadow-chip">
                                 <Image
                                   src={c.flag}
                                   alt=""
@@ -162,7 +162,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                                   className="object-cover"
                                 />
                               </span>
-                              <span className="text-sm font-medium text-navy">
+                              <span className="text-sm font-medium text-brand">
                                 {c.name}
                               </span>
                             </Link>
@@ -171,7 +171,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                       </ul>
                       <Link
                         href="/destinations"
-                        className="mt-4 inline-flex items-center gap-1 border-t border-navy/10 pt-4 text-sm font-semibold text-gold-dark hover:text-navy"
+                        className="mt-4 inline-flex items-center gap-1 border-t border-brand/10 pt-4 text-sm font-semibold text-gold-dark hover:text-brand"
                       >
                         Compare all destinations →
                       </Link>
@@ -210,7 +210,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                     {...panelMotion}
                     className="absolute left-1/2 top-full w-[680px] -translate-x-1/2 pt-3"
                   >
-                    <div className="overflow-hidden rounded-2xl border border-navy/10 bg-white p-5 shadow-lift">
+                    <div className="overflow-hidden rounded-2xl border border-brand/10 bg-white p-5 shadow-lift">
                       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-gold-dark">
                         End-to-end support
                       </p>
@@ -224,7 +224,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                               <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold-dark">
                                 <Icon name={s.icon} className="h-4 w-4" />
                               </span>
-                              <span className="text-sm font-medium leading-snug text-navy">
+                              <span className="text-sm font-medium leading-snug text-brand">
                                 {s.title}
                               </span>
                             </Link>
@@ -233,7 +233,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
                       </ul>
                       <Link
                         href="/services"
-                        className="mt-4 inline-flex items-center gap-1 border-t border-navy/10 pt-4 text-sm font-semibold text-gold-dark hover:text-navy"
+                        className="mt-4 inline-flex items-center gap-1 border-t border-brand/10 pt-4 text-sm font-semibold text-gold-dark hover:text-brand"
                       >
                         See all services →
                       </Link>
@@ -276,14 +276,14 @@ export function Header({ brand }: { brand: BrandAssets }) {
                     {...panelMotion}
                     className="absolute right-0 top-full w-[340px] pt-3"
                   >
-                    <ul className="overflow-hidden rounded-2xl border border-navy/10 bg-white p-2 shadow-lift">
+                    <ul className="overflow-hidden rounded-2xl border border-brand/10 bg-white p-2 shadow-lift">
                       {resourceLinks.map((r) => (
                         <li key={r.href}>
                           <Link
                             href={r.href}
                             className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-cream"
                           >
-                            <span className="block text-sm font-medium text-navy">
+                            <span className="block text-sm font-medium text-brand">
                               {r.label}
                             </span>
                             {r.desc && (
@@ -311,7 +311,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
         <div className="flex items-center gap-2">
           <Link
             href="/free-assessment"
-            className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy-dark shadow-chip transition-all hover:bg-gold-light hover:shadow-lift lg:inline-flex"
+            className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-brand-dark shadow-chip transition-all hover:bg-gold-light hover:shadow-lift lg:inline-flex"
           >
             Free Assessment
           </Link>

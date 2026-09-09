@@ -77,28 +77,114 @@ straight to the student, because every submission sets a reply-to address.
 
 ## Environment variables
 
-| Variable | Required | What it does |
-|---|---|---|
-| `NEXT_PUBLIC_WEB3FORMS_KEY` | Yes | Delivers form submissions to the office inbox |
+| Variable | Required | Used at | What it does |
+|---|---|---|---|
+| `NEXT_PUBLIC_WEB3FORMS_KEY` | **Yes** | Build + browser | Delivers form submissions to the office inbox |
+| `PEXELS_API_KEY` | No | Local scripts only | Used by `npm run images:fetch` to download site photography. Never read at runtime, never sent to the browser. |
+
+Copy `.env.example` to `.env.local` and fill them in. `.env.local` is gitignored
+and must never be committed.
+
+> `NEXT_PUBLIC_*` variables are inlined into the JavaScript bundle at **build**
+> time. Changing one in Vercel does nothing until you **redeploy**.
 
 ---
 
-## Logo files
+## Brand palette
 
-The site ships with a text lockup (**READING** over — STUDY ABROAD —) and
-switches to the real artwork automatically. To activate it, drop these three
-files into `/public/` and redeploy — **no code changes needed**:
+Taken from the client's logo artwork — the logo is the authoritative brand
+asset, so the site matches it rather than the other way round.
 
-| File | Used for |
-|---|---|
-| `public/logo.png` | Light backgrounds |
-| `public/logo-white.png` | The navy header, footer and mobile drawer |
-| `public/logo-icon.png` | Favicon, Apple touch icon, OG card, 404 page |
+| Token | Hex | Used for |
+|---|---|---|
+| `brand` | `#24044C` | Header, hero, primary surfaces |
+| `brand-light` | `#38106B` | Hover states, raised surfaces |
+| `brand-dark` | `#16032F` | Top bar, footer, deepest sections |
+| `gold` | `#FCAC04` | Buttons, accents, the reversed logo |
+| `gold-light` | `#FFC94A` | Hover on gold |
+| `gold-dark` | `#D48F00` | **Small gold text on light backgrounds** |
+| `cream` | `#FDFBF7` | Light section backgrounds |
+| `ink` | `#0F172A` | Body copy |
 
-`lib/brandAssets.ts` checks for these at build time and reads each PNG's real
-dimensions from its header, so the logo is never stretched. If `logo-white.png`
-is missing but `logo.png` is present, the colour logo is inverted with CSS as a
-stopgap — supply the real white file when you can.
+**Contrast rules — these are not preferences:**
+
+- Gold on `brand` passes comfortably. White on `brand` passes easily.
+- **Gold text on white fails** below 18px. Use `gold-dark` for small text on
+  light surfaces.
+- Gold buttons take `brand` text, never white.
+
+Everything lives in `tailwind.config.ts`. No raw hex appears anywhere else in
+the codebase except `app/opengraph-image.tsx`, which renders outside Tailwind.
+The old pre-logo palette is recorded in a comment at the top of the colour
+block, so the change is a single edit to revert.
+
+---
+
+## Scripts
+
+```bash
+npm run dev              # local dev server
+npm run build            # production build (runs images:manifest first)
+npm run start            # serve the production build
+npm run lint             # ESLint
+
+npm run logo             # regenerate all logo derivatives from /brand-source
+npm run images:fetch     # download + optimise site photography (needs PEXELS_API_KEY)
+npm run images:manifest  # refresh which image files exist (automatic on build)
+npm run images:doc       # regenerate IMAGES-NEEDED.md
+```
+
+### `npm run logo`
+
+Reads the client's original artwork from `/brand-source` and produces every
+asset the site uses: transparent lockups for light and dark backgrounds, a
+horizontal lockup that stays legible in the header, icon marks, and the
+favicon / Apple touch icon.
+
+It is a self-contained PNG codec built on Node's `zlib` — no image library — so
+it runs anywhere with no install. Re-run it whenever the client sends new
+artwork.
+
+### `npm run images:fetch`
+
+Fills the 31 photographic slots from the Pexels API (free, commercial use, no
+attribution required). Needs `PEXELS_API_KEY` in `.env.local`; without it the
+script explains how to get one and exits without writing anything.
+
+Picks are **deterministic** — candidates are ranked by resolution, aspect ratio
+and casting signals, and the winning photo ID is written to
+`scripts/images.lock.json`. Re-running reuses the locked IDs, so the build is
+reproducible and photography does not silently reshuffle. Delete an entry from
+the lockfile to re-pick that one slot.
+
+Images are cover-cropped to exact dimensions, encoded to WebP, and stepped down
+in quality until they fit their size budget (hero ≤ 250KB, section ≤ 150KB,
+card ≤ 80KB). Pakistani students are mostly on 3G/4G with data caps.
+
+Three slots are **never** auto-filled — the office exterior (a stock building
+would be a lie), success-story portraits (a stock face beside a testimonial is
+misrepresentation), and anything university-branded (implies an unproven
+partnership). See `CONTENT-NEEDED.md`.
+
+---
+
+## Images
+
+`data/images.ts` is the single source of truth for all 31 photographic slots.
+`scripts/imageQueries.mjs` holds the search queries and skip rules, shared by
+both the fetcher and the checklist generator so they cannot drift apart.
+
+`components/SmartImage.tsx` renders a photo when the file exists and a branded
+purple→gold panel when it does not — so the site is fully image-ready before a
+single photo is sourced, and never shows a broken image. File presence comes
+from `data/imageManifest.ts`, generated at build time, which is why SmartImage
+works in both server and client components.
+
+`IMAGES-NEEDED.md` is the working checklist. Regenerate it with
+`npm run images:doc`; it re-counts what has been supplied.
+
+**Photography must never go behind** form panels, the FAQ accordion, the process
+timeline, or the stats band. Those need clean flat backgrounds to stay readable.
 
 ---
 

@@ -7,7 +7,7 @@ import { WhatsAppIcon } from "./Icon";
 /** Bottom action bar, mobile only. Body gets matching padding in layout.tsx. */
 export function StickyMobileCTA() {
   return (
-    <div className="no-print fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-navy-dark/95 backdrop-blur-md lg:hidden">
+    <div className="no-print fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-brand-dark/95 backdrop-blur-md lg:hidden">
       <div className="grid grid-cols-3 pb-[env(safe-area-inset-bottom)]">
         <a
           href={telLink(site.phones[0])}
@@ -30,7 +30,7 @@ export function StickyMobileCTA() {
         </a>
         <Link
           href="/free-assessment"
-          className="flex flex-col items-center justify-center gap-1 bg-gold py-2.5 text-[11px] font-semibold text-navy-dark"
+          className="flex flex-col items-center justify-center gap-1 bg-gold py-2.5 text-[11px] font-semibold text-brand-dark"
         >
           <ClipboardList className="h-5 w-5" strokeWidth={2} aria-hidden />
           Free Check

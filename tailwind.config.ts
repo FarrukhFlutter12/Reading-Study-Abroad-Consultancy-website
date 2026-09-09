@@ -8,9 +8,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      /**
+       * Brand palette, taken from the client's logo artwork — the logo is the
+       * authoritative brand asset, so the site matches it rather than the other
+       * way round.
+       *
+       * TO REVERT to the pre-logo palette, replace this block with:
+       *   brand: { DEFAULT: "#0B1F4E", light: "#132C63", dark: "#071638" },
+       *   gold:  { DEFAULT: "#F5A623", light: "#FFC15E", dark: "#D4881A" },
+       *
+       * Contrast notes: gold on brand passes comfortably. Gold text on white
+       * still FAILS below 18px — use `gold-dark` for small text on light
+       * surfaces, and put `brand` text on gold buttons, never the reverse.
+       */
       colors: {
-        navy: { DEFAULT: "#0B1F4E", light: "#132C63", dark: "#071638" },
-        gold: { DEFAULT: "#F5A623", light: "#FFC15E", dark: "#D4881A" },
+        brand: {
+          DEFAULT: "#24044C", // logo.png artwork
+          light: "#38106B", // hover / raised surfaces
+          dark: "#16032F", // footer, deepest sections
+        },
+        gold: {
+          DEFAULT: "#FCAC04", // logo1.png artwork
+          light: "#FFC94A",
+          dark: "#D48F00",
+        },
         cream: "#FDFBF7",
         ink: "#0F172A",
       },
@@ -21,14 +42,14 @@ const config: Config = {
       },
       boxShadow: {
         card: "0 1px 2px rgba(11,31,78,.06), 0 8px 24px -12px rgba(11,31,78,.18)",
-        lift: "0 12px 32px -12px rgba(11,31,78,.28)",
-        chip: "0 4px 14px -6px rgba(11,31,78,.35)",
+        lift: "0 12px 32px -12px rgba(36,4,76,.28)",
+        chip: "0 4px 14px -6px rgba(36,4,76,.35)",
       },
       backgroundImage: {
         "dot-grid":
           "radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px)",
-        "navy-gradient":
-          "linear-gradient(135deg, #071638 0%, #0B1F4E 45%, #132C63 100%)",
+        "brand-gradient":
+          "linear-gradient(135deg, #16032F 0%, #24044C 45%, #38106B 100%)",
       },
       backgroundSize: {
         "dot-16": "16px 16px",

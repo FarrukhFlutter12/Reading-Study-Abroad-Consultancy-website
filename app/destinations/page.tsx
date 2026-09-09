@@ -70,7 +70,7 @@ export default function DestinationsPage() {
 
       <section className="bg-cream pb-16 lg:pb-20">
         <div className="container-page">
-          <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-8">
+          <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-8">
             <h2 className="text-xl">Not sure which one fits you?</h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/75">
               Almost every student arrives with a country already in mind, and a

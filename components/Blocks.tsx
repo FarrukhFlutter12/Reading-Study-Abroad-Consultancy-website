@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ChevronRight, Inbox } from "lucide-react";
 import type { ProcessStep } from "@/data/process";
+import type { ImageSlot } from "@/data/images";
 import { cn } from "@/lib/utils";
 import { Icon } from "./Icon";
 import { RevealGroup, RevealItem } from "./Reveal";
+import { SmartImage } from "./SmartImage";
 
 /* --------------------------------------------------------- breadcrumbs */
 
@@ -51,7 +53,7 @@ export function Breadcrumbs({
             ) : (
               <span
                 aria-current="page"
-                className={onDark ? "text-white" : "text-navy"}
+                className={onDark ? "text-white" : "text-brand"}
               >
                 {c.label}
               </span>
@@ -82,7 +84,7 @@ export function StepTimeline({ steps }: { steps: ProcessStep[] }) {
         {steps.map((s) => (
           <RevealItem as="li" key={s.number} className="lg:text-center">
             <div className="flex gap-4 lg:flex-col lg:items-center lg:gap-0">
-              <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-gold bg-white text-navy shadow-chip">
+              <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-gold bg-white text-brand shadow-chip">
                 <Icon name={s.icon} className="h-6 w-6" />
               </span>
               <div className="lg:mt-4">
@@ -116,7 +118,7 @@ export function CTABand({
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy-gradient">
+    <section className="relative overflow-hidden bg-brand-gradient">
       <span
         aria-hidden
         className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"
@@ -167,7 +169,7 @@ export function EmptyState({
   icon?: string;
 }) {
   return (
-    <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-navy/20 bg-white/60 p-8 text-center sm:p-12">
+    <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-brand/20 bg-white/60 p-8 text-center sm:p-12">
       <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-gold/15 text-gold-dark">
         {icon === "inbox" ? (
           <Inbox className="h-6 w-6" strokeWidth={1.75} aria-hidden />
@@ -193,16 +195,23 @@ export function PageHero({
   title,
   subtitle,
   crumbs,
+  image,
   children,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
   crumbs: Crumb[];
+  /** Optional photographic backdrop. Always sits under a strong brand wash so
+      the headline keeps its contrast whichever photo lands here. */
+  image?: ImageSlot;
   children?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-navy-gradient">
+    <section className="relative overflow-hidden bg-brand-gradient">
+      {image && (
+        <SmartImage slot={image} overlay="strong" sizes="100vw" blur />
+      )}
       <span
         aria-hidden
         className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"

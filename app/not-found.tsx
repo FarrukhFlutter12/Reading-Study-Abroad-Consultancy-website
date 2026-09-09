@@ -7,7 +7,7 @@ export default function NotFound() {
   const brand = getBrandAssets();
 
   return (
-    <section className="relative overflow-hidden bg-navy-gradient">
+    <section className="relative overflow-hidden bg-brand-gradient">
       <span
         aria-hidden
         className="absolute inset-0 bg-dot-grid bg-dot-16 opacity-40"

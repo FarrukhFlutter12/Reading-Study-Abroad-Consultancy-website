@@ -74,7 +74,7 @@ export default function AboutPage() {
               <Link href="/free-assessment" className="btn-gold">
                 Book Free Counselling
               </Link>
-              <Link href="/services" className="btn-outline-navy">
+              <Link href="/services" className="btn-outline-brand">
                 See our services
               </Link>
             </div>
@@ -82,19 +82,19 @@ export default function AboutPage() {
 
           <Reveal delay={0.1}>
             <div className="space-y-5">
-              <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+              <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
                 <h3 className="text-lg">Our mission</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink/75">
                   {mission}
                 </p>
               </div>
-              <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+              <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
                 <h3 className="text-lg">Our vision</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink/75">
                   {vision}
                 </p>
               </div>
-              <div className="rounded-2xl bg-navy-gradient p-6 text-white sm:p-7">
+              <div className="rounded-2xl bg-brand-gradient p-6 text-white sm:p-7">
                 <h3 className="text-lg text-white">What we cover</h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/75">
                   Ten destinations, processed from one office in Hayatabad:
@@ -130,13 +130,13 @@ export default function AboutPage() {
       <section aria-label="Inside our Hayatabad office" className="bg-cream pb-4">
         <div className="container-page">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-card sm:aspect-[3/2]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-brand/10 shadow-card sm:aspect-[3/2]">
               <SmartImage
                 slot={images.about.counselling}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-card sm:aspect-[3/2]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-brand/10 shadow-card sm:aspect-[3/2]">
               <SmartImage
                 slot={images.about.officeTeam}
                 sizes="(max-width: 640px) 100vw, 50vw"
@@ -176,7 +176,7 @@ export default function AboutPage() {
               title="Our Five Commitments"
             />
           </Reveal>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-8">
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-8">
             <CheckList items={usps.map((u) => u.title)} />
           </div>
         </div>
@@ -197,10 +197,10 @@ export default function AboutPage() {
               {team.map((m) => (
                 <RevealItem
                   key={m.id}
-                  className="rounded-2xl border border-navy/10 bg-white p-6 text-center shadow-card"
+                  className="rounded-2xl border border-brand/10 bg-white p-6 text-center shadow-card"
                 >
                   {m.photo && (
-                    <span className="relative mx-auto block h-24 w-24 overflow-hidden rounded-full ring-1 ring-navy/10">
+                    <span className="relative mx-auto block h-24 w-24 overflow-hidden rounded-full ring-1 ring-brand/10">
                       <Image
                         src={m.photo}
                         alt={m.name}
@@ -241,7 +241,7 @@ export default function AboutPage() {
               {officePhotos.map((p) => (
                 <RevealItem
                   key={p.src}
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-navy/10 shadow-card"
+                  className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-brand/10 shadow-card"
                 >
                   <Image
                     src={p.src}
@@ -298,14 +298,14 @@ export default function AboutPage() {
               >
                 Open in Google Maps
               </a>
-              <Link href="/contact" className="btn-outline-navy">
+              <Link href="/contact" className="btn-outline-brand">
                 Contact details
               </Link>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-2xl border border-navy/10 shadow-card">
+            <div className="overflow-hidden rounded-2xl border border-brand/10 shadow-card">
               <iframe
                 src={mapsEmbed(site.address.mapsQuery)}
                 title={`Map showing ${site.name} in ${site.address.city}`}

@@ -55,7 +55,7 @@ export function FloatingWhatsApp() {
         <WhatsAppIcon className="relative h-7 w-7" />
       </span>
 
-      <span className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-lg bg-navy px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lift transition-opacity group-hover:opacity-100 lg:block">
+      <span className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-lg bg-brand px-3 py-2 text-xs font-medium text-white opacity-0 shadow-lift transition-opacity group-hover:opacity-100 lg:block">
         Chat with a counsellor
       </span>
     </a>

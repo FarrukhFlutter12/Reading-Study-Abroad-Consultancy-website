@@ -46,7 +46,7 @@ export default function ApplyPage() {
 
             <Reveal className="mt-10 rounded-2xl bg-gold/10 p-6">
               <p className="text-sm leading-relaxed text-ink/80">
-                <strong className="text-navy">
+                <strong className="text-brand">
                   Want a fuller assessment first?
                 </strong>{" "}
                 The{" "}
@@ -64,7 +64,7 @@ export default function ApplyPage() {
 
           {/* --------------------------------------------- sidebar */}
           <aside className="space-y-5 lg:sticky lg:top-28">
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
               <h2 className="text-lg">What we will need</h2>
               <CheckList
                 className="mt-4"
@@ -76,13 +76,13 @@ export default function ApplyPage() {
                   "Any previous visa refusal, declared honestly",
                 ]}
               />
-              <p className="mt-5 border-t border-navy/10 pt-4 text-xs leading-relaxed text-ink/60">
+              <p className="mt-5 border-t border-brand/10 pt-4 text-xs leading-relaxed text-ink/60">
                 Do not send documents by email until a counsellor asks you to.
                 We will tell you exactly what to send, and how.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
               <h2 className="text-lg">What happens after this</h2>
               <ol className="mt-4 space-y-3">
                 {processSteps.slice(0, 4).map((s) => (
@@ -98,7 +98,7 @@ export default function ApplyPage() {
               </ol>
             </div>
 
-            <div className="rounded-2xl bg-navy-gradient p-6 text-white">
+            <div className="rounded-2xl bg-brand-gradient p-6 text-white">
               <h2 className="text-lg text-white">In a hurry?</h2>
               <p className="mt-2 text-sm leading-relaxed text-white/75">
                 Intake deadlines move fast. Call us directly and we will start

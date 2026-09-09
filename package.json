@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "logo": "node scripts/generate-icons.mjs",
-    "images:doc": "node scripts/generate-images-doc.mjs"
+    "images:doc": "node scripts/generate-images-doc.mjs",
+    "images:manifest": "node scripts/generate-image-manifest.mjs",
+    "images:fetch": "node scripts/fetch-images.mjs",
+    "prebuild": "node scripts/generate-image-manifest.mjs",
+    "images:sheet": "node scripts/contact-sheet.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
@@ -24,6 +28,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
     "postcss": "^8",
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

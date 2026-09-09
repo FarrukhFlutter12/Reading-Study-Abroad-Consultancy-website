@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
 
       <section className="bg-cream py-14 lg:py-20">
         <div className="container-page">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-9">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-9">
             <div className="prose-page">
               <h2 className="text-xl">Who we are</h2>
               <p>

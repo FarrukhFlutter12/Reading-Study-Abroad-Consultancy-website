@@ -33,7 +33,7 @@ const BRAND = {
   purple: [0x24, 0x04, 0x4c], // logo artwork / logo1 background
   gold: [0xfc, 0xac, 0x04], // logo2 background
   nearWhite: [0xfc, 0xfc, 0xfc], // logo background
-  siteNavy: [0x0b, 0x1f, 0x4e], // tailwind navy.DEFAULT
+  siteBrand: [0x24, 0x04, 0x4c], // tailwind brand.DEFAULT
 };
 
 /* ------------------------------------------------------------ PNG decode */
@@ -438,12 +438,12 @@ emit(path.join(PUB, "logo-stacked-on-dark.png"), resize(dark.full, Math.round((d
 emit(path.join(PUB, "logo-mark.png"), squarePad(light.mark, 384, 0.04));
 emit(path.join(PUB, "logo-mark-on-dark.png"), squarePad(dark.mark, 384, 0.04));
 
-// App icons. Apple's icon gets a solid navy plate — iOS ignores transparency
+// App icons. Apple's icon gets a solid brand-purple plate — iOS ignores transparency
 // and would otherwise render a black square.
 emit(path.join(APP, "icon.png"), squarePad(light.mark, 256, 0.1));
-emit(path.join(APP, "apple-icon.png"), squarePad(dark.mark, 180, 0.16, BRAND.siteNavy));
+emit(path.join(APP, "apple-icon.png"), squarePad(dark.mark, 180, 0.16, BRAND.siteBrand));
 
-const icoSize = writeIco(path.join(APP, "favicon.ico"), squarePad(dark.mark, 48, 0.12, BRAND.siteNavy));
+const icoSize = writeIco(path.join(APP, "favicon.ico"), squarePad(dark.mark, 48, 0.12, BRAND.siteBrand));
 written.push([path.relative(ROOT, path.join(APP, "favicon.ico")), "48x48", kb(icoSize)]);
 
 console.log("");

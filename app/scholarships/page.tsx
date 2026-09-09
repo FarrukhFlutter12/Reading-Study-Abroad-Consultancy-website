@@ -99,7 +99,7 @@ export default function ScholarshipsPage() {
 
           <Reveal className="mx-auto mt-10 max-w-3xl rounded-2xl bg-gold/10 p-6 text-center">
             <p className="text-sm leading-relaxed text-ink/80">
-              <strong className="text-navy">
+              <strong className="text-brand">
                 We do not publish scholarship amounts on this site.
               </strong>{" "}
               Award values, eligibility thresholds and deadlines are revised
@@ -149,7 +149,7 @@ export default function ScholarshipsPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-8">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-8">
               <h2 className="text-xl">Ask about your eligibility</h2>
               <p className="mt-2 text-sm leading-relaxed text-ink/70">
                 Tell us your grades and destination and we will identify the

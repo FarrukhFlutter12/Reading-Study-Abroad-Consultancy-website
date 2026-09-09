@@ -6,7 +6,7 @@ import { SocialLinks } from "./SocialLinks";
 /** Thin strip above the header. Desktop only. */
 export function TopBar() {
   return (
-    <div className="hidden bg-navy-dark text-white lg:block">
+    <div className="hidden bg-brand-dark text-white lg:block">
       <div className="container-page flex h-9 items-center justify-between text-xs">
         <div className="flex items-center gap-5">
           {site.phones.map((p, i) => (

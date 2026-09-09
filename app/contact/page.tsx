@@ -41,8 +41,8 @@ export default function ContactPage() {
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {/* phones */}
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-gold">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand text-gold">
                 <Phone className="h-5 w-5" strokeWidth={2} aria-hidden />
               </span>
               <h3 className="mt-4 text-base">Call us</h3>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                   <li key={p}>
                     <a
                       href={telLink(p)}
-                      className="rounded font-medium text-navy transition-colors hover:text-gold-dark"
+                      className="rounded font-medium text-brand transition-colors hover:text-gold-dark"
                     >
                       {site.phonesDisplay[i]}
                     </a>
@@ -61,7 +61,7 @@ export default function ContactPage() {
             </div>
 
             {/* whatsapp */}
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#25D366] text-white">
                 <WhatsAppIcon className="h-5 w-5" />
               </span>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                       href={waLink(p, WA_MESSAGE)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded font-medium text-navy transition-colors hover:text-gold-dark"
+                      className="rounded font-medium text-brand transition-colors hover:text-gold-dark"
                     >
                       {site.phonesDisplay[i]}
                     </a>
@@ -83,22 +83,22 @@ export default function ContactPage() {
             </div>
 
             {/* email */}
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-gold">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand text-gold">
                 <Mail className="h-5 w-5" strokeWidth={2} aria-hidden />
               </span>
               <h3 className="mt-4 text-base">Email</h3>
               <a
                 href={`mailto:${site.email}`}
-                className="mt-3 block break-all rounded text-sm font-medium text-navy transition-colors hover:text-gold-dark"
+                className="mt-3 block break-all rounded text-sm font-medium text-brand transition-colors hover:text-gold-dark"
               >
                 {site.email}
               </a>
             </div>
 
             {/* address */}
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-gold">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand text-gold">
                 <MapPin className="h-5 w-5" strokeWidth={2} aria-hidden />
               </span>
               <h3 className="mt-4 text-base">Visit</h3>
@@ -115,7 +115,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="mt-5 flex flex-col gap-5 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-5 flex flex-col gap-5 rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:flex-row sm:items-center sm:justify-between">
             {isReady(site.officeHours) ? (
               <p className="flex items-center gap-3 text-sm text-ink/80">
                 <Clock
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   aria-hidden
                 />
                 <span>
-                  <span className="font-semibold text-navy">Office hours: </span>
+                  <span className="font-semibold text-brand">Office hours: </span>
                   {site.officeHours}
                 </span>
               </p>
@@ -132,9 +132,9 @@ export default function ContactPage() {
               <span />
             )}
 
-            <div className="flex items-center gap-3 text-navy">
+            <div className="flex items-center gap-3 text-brand">
               <span className="text-sm font-medium">Follow us</span>
-              <SocialLinks variant="circle" circleClass="border-navy/15" />
+              <SocialLinks variant="circle" circleClass="border-brand/15" />
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
               title="Basharat Market, Phase 03"
               subtitle="We are in Hayatabad, Peshawar. Walk-ins are welcome during office hours — no appointment needed for a first counselling session."
             />
-            <div className="mt-8 overflow-hidden rounded-2xl border border-navy/10 shadow-card">
+            <div className="mt-8 overflow-hidden rounded-2xl border border-brand/10 shadow-card">
               <iframe
                 src={mapsEmbed(site.address.mapsQuery)}
                 title={`Map showing ${site.name} in ${site.address.city}`}

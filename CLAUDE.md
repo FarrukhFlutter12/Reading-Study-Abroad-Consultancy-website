@@ -58,26 +58,38 @@ Everything here is free-tier.
 
 ## Brand
 
+Taken from the client's logo artwork — the logo is the authoritative brand
+asset, so the site matches it, not the other way round.
+
 ```
-navy   #0B1F4E   light #132C63   dark #071638
-gold   #F5A623   light #FFC15E   dark #D4881A
+brand  #24044C   light #38106B   dark #16032F
+gold   #FCAC04   light #FFC94A   dark #D48F00
 cream  #FDFBF7
 ink    #0F172A
 ```
+
+There is no `navy` token any more. Never write a raw hex outside
+`tailwind.config.ts` — the one exception is `app/opengraph-image.tsx`, which
+renders through Satori, outside Tailwind.
 
 - **Headings:** Poppins 600/700 (`font-display`)
 - **Body:** Inter 400/500 (`font-sans`)
 - **Tagline only:** Playfair Display Italic (`font-script`) — "Read the World
   with Reading Study Abroad"
 
-Visual language, taken from the client's banner (`public/brand/banner.png`):
-deep navy grounds with gold accents and thin gold rules, navy pill badges for
+Visual language, taken from the client's banner
+(`Images Provided By Developer/`) and their logo artwork (`brand-source/`):
+deep purple grounds with gold accents and thin gold rules, pill badges for
 country names, circular flag chips with a white ring and soft shadow, sweeping
-SVG curve dividers, generous white space on light sections, navy bands for CTAs
-and the footer.
+SVG curve dividers, generous white space on light sections, purple bands for
+CTAs and the footer.
 
-**Contrast:** gold on white fails at small sizes. Buttons use navy text on gold;
-small gold text uses `gold-dark`. Never gold body copy on white.
+**Contrast:** gold on white fails at small sizes. Buttons use `brand` text on
+gold; small gold text uses `gold-dark`. Never gold body copy on white.
+
+**Logo placement is decided by BACKGROUND, never by filename** — dark surfaces
+get the gold lockup (`onDark`), light and gold surfaces get the purple one
+(`onLight`). See `lib/brandAssets.ts`.
 
 ---
 
@@ -93,6 +105,9 @@ lib/          utils.ts (helpers + isReady), seo.ts (metadata + JSON-LD builders)
               submitForm.ts (the ONLY Web3Forms client),
               brandAssets.ts (SERVER-ONLY logo detection — never import
               from a 'use client' file)
+data/         imageManifest.ts + blurData.ts are GENERATED — do not hand-edit
+scripts/      generate-icons (logo derivatives), fetch-images (Pexels pipeline),
+              contact-sheet (human review), generate-image-manifest (prebuild)
 public/flags/ ten hand-authored SVGs, named by country slug
 ```
 

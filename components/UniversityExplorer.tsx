@@ -87,7 +87,7 @@ export function UniversityExplorer({ items }: { items: University[] }) {
       </p>
 
       {filtered.length === 0 ? (
-        <p className="mt-10 rounded-2xl border border-dashed border-navy/20 p-10 text-center text-sm text-ink/65">
+        <p className="mt-10 rounded-2xl border border-dashed border-brand/20 p-10 text-center text-sm text-ink/65">
           No universities match that search. Try a different name, or clear the
           country filter.
         </p>
@@ -96,7 +96,7 @@ export function UniversityExplorer({ items }: { items: University[] }) {
           {filtered.map((u) => (
             <li
               key={u.id}
-              className="flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lift"
+              className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lift"
             >
               {u.logo && (
                 <span className="relative mb-4 block h-12 w-12 overflow-hidden rounded-lg">
@@ -132,7 +132,7 @@ export function UniversityExplorer({ items }: { items: University[] }) {
                     href={u.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-ink/60 underline-offset-2 hover:text-navy hover:underline"
+                    className="text-sm font-medium text-ink/60 underline-offset-2 hover:text-brand hover:underline"
                   >
                     Official site
                   </a>

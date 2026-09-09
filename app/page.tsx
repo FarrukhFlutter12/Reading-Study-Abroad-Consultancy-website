@@ -19,8 +19,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SmartImage } from "@/components/SmartImage";
 import { StatCounter } from "@/components/StatCounter";
 import { countries } from "@/data/countries";
+import { images } from "@/data/images";
 import { homeFaqs } from "@/data/faqs";
 import { processSteps, usps, whyChooseUs } from "@/data/process";
 import { services } from "@/data/services";
@@ -53,12 +55,12 @@ export default function HomePage() {
             {usps.map((u) => (
               <RevealItem
                 key={u.title}
-                className="flex flex-col items-center gap-3 rounded-2xl border border-navy/10 bg-white px-4 py-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
+                className="flex flex-col items-center gap-3 rounded-2xl border border-brand/10 bg-white px-4 py-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold/50"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-navy text-gold">
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-brand text-gold">
                   <Icon name={u.icon} className="h-6 w-6" />
                 </span>
-                <span className="font-display text-[13px] font-semibold uppercase leading-tight tracking-wide text-navy sm:text-sm">
+                <span className="font-display text-[13px] font-semibold uppercase leading-tight tracking-wide text-brand sm:text-sm">
                   {u.title}
                 </span>
               </RevealItem>
@@ -91,7 +93,7 @@ export default function HomePage() {
           </RevealGroup>
 
           <Reveal className="mt-10 text-center">
-            <Link href="/destinations" className="btn-outline-navy">
+            <Link href="/destinations" className="btn-outline-brand">
               Compare all destinations
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
@@ -100,10 +102,19 @@ export default function HomePage() {
       </section>
 
       {/* ------------------------------------------------ 4. why us */}
-      <section aria-labelledby="why-heading" className="bg-white py-16 lg:py-20">
-        <div className="container-page">
+      <section
+        aria-labelledby="why-heading"
+        className="relative overflow-hidden bg-brand py-16 lg:py-20"
+      >
+        <SmartImage
+          slot={images.sections.studentsGroup}
+          overlay="strong"
+          sizes="100vw"
+        />
+        <div className="container-page relative">
           <Reveal>
             <SectionHeading
+              onDark
               id="why-heading"
               eyebrow="Why Reading Study Abroad"
               title="A Consultancy That Tells You the Truth"
@@ -166,7 +177,7 @@ export default function HomePage() {
           </RevealGroup>
 
           <Reveal className="mt-10 text-center">
-            <Link href="/services" className="btn-outline-navy">
+            <Link href="/services" className="btn-outline-brand">
               See all ten services
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
@@ -176,7 +187,7 @@ export default function HomePage() {
 
       {/* --------------------------------------------------- 7. stats */}
       {showStats && (
-        <section aria-label="Our numbers" className="bg-navy-gradient">
+        <section aria-label="Our numbers" className="bg-brand-gradient">
           <div className="container-page py-14 lg:py-16">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {readyStats.map(([key, value]) => (
@@ -234,7 +245,7 @@ export default function HomePage() {
       {/* ------------------------------------- 9. inline lead capture */}
       <section
         aria-labelledby="assess-heading"
-        className="relative overflow-hidden bg-navy-gradient py-16 lg:py-20"
+        className="relative overflow-hidden bg-brand-gradient py-16 lg:py-20"
       >
         <span
           aria-hidden

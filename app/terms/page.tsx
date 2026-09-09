@@ -27,10 +27,10 @@ export default function TermsPage() {
 
       <section className="bg-cream py-14 lg:py-20">
         <div className="container-page">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-9">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-9">
             <div className="prose-page">
               <div className="mb-8 rounded-xl border-l-4 border-gold bg-gold/10 p-5">
-                <p className="text-sm font-medium text-navy">{disclaimer}</p>
+                <p className="text-sm font-medium text-brand">{disclaimer}</p>
               </div>
 
               <h2 className="text-xl">1. About these terms</h2>

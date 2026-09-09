@@ -46,7 +46,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* --------------------------------------------------------- hero */}
-      <section className="relative overflow-hidden bg-navy-gradient">
+      <section className="relative overflow-hidden bg-brand-gradient">
         {shot && (
           <SmartImage slot={shot.hero} blur overlay="strong" sizes="100vw" />
         )}
@@ -158,7 +158,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 {c.highlights.map((h) => (
                   <li
                     key={h}
-                    className="rounded-2xl border border-navy/10 bg-white p-5 text-sm leading-relaxed text-ink/80 shadow-card"
+                    className="rounded-2xl border border-brand/10 bg-white p-5 text-sm leading-relaxed text-ink/80 shadow-card"
                   >
                     {h}
                   </li>
@@ -178,7 +178,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 {c.popularCourses.map((course) => (
                   <li
                     key={course}
-                    className="rounded-full border border-navy/15 bg-white px-4 py-2 text-sm font-medium text-navy shadow-card"
+                    className="rounded-full border border-brand/15 bg-white px-4 py-2 text-sm font-medium text-brand shadow-card"
                   >
                     {course}
                   </li>
@@ -198,12 +198,12 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 {c.intakes.map((intake, i) => (
                   <li
                     key={intake}
-                    className="rounded-2xl border border-navy/10 bg-white p-5 shadow-card"
+                    className="rounded-2xl border border-brand/10 bg-white p-5 shadow-card"
                   >
                     <span className="font-display text-xs font-bold tracking-[0.18em] text-gold-dark">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="mt-1.5 font-display text-base font-semibold text-navy">
+                    <p className="mt-1.5 font-display text-base font-semibold text-brand">
                       {intake}
                     </p>
                   </li>
@@ -218,11 +218,11 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 eyebrow="Eligibility"
                 title="Admission requirements"
               />
-              <div className="mt-6 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+              <div className="mt-6 rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
                 <CheckList items={c.requirements} />
               </div>
               <p className="mt-4 rounded-xl bg-gold/10 p-4 text-sm leading-relaxed text-ink/75">
-                <strong className="text-navy">Note on specifics:</strong>{" "}
+                <strong className="text-brand">Note on specifics:</strong>{" "}
                 {c.tuitionNote} Requirements change each intake —{" "}
                 <Link
                   href="/free-assessment"
@@ -242,9 +242,9 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 title="Document checklist"
                 subtitle="Start attestation and legalisation early — it is the stage that most often costs students an intake."
               />
-              <div className="mt-6 rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-7">
+              <div className="mt-6 rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-7">
                 <CheckList items={c.documents} columns={2} />
-                <div className="mt-6 border-t border-navy/10 pt-5">
+                <div className="mt-6 border-t border-brand/10 pt-5">
                   <PrintButton label={`Print the ${inName(c)} checklist`} />
                 </div>
               </div>
@@ -261,9 +261,9 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                 {c.processSteps.map((s, i) => (
                   <li
                     key={s}
-                    className="flex gap-4 rounded-2xl border border-navy/10 bg-white p-5 shadow-card"
+                    className="flex gap-4 rounded-2xl border border-brand/10 bg-white p-5 shadow-card"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-navy font-display text-sm font-bold text-gold">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand font-display text-sm font-bold text-gold">
                       {i + 1}
                     </span>
                     <span className="pt-1.5 text-sm leading-relaxed text-ink/80">
@@ -322,7 +322,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
           </div>
           <Link
             href="/destinations"
-            className="btn-outline-navy mt-8 inline-flex"
+            className="btn-outline-brand mt-8 inline-flex"
           >
             All ten destinations
             <ArrowRight className="h-4 w-4" aria-hidden />

@@ -39,7 +39,7 @@ export const site = {
   /**
    * Logo assets, named by the BACKGROUND they belong on — not by filename.
    *
-   * The rule: dark/navy background -> `onDark` (gold artwork); light, cream or
+   * The rule: dark/purple background -> `onDark` (gold artwork); light, cream or
    * gold background -> `onLight` (purple artwork). Never gold-on-gold, and
    * never white artwork on gold.
    *

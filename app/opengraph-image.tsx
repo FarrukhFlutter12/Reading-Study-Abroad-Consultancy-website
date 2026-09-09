@@ -11,7 +11,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /**
- * Generated OG card: navy ground, gold logo lockup, tagline.
+ * Generated OG card: brand-purple ground, gold logo lockup, tagline.
  *
  * This route runs on the edge, where node:fs is unavailable, so it cannot use
  * lib/brandAssets.ts. Instead it probes the deployed URL for the icon mark and
@@ -19,7 +19,7 @@ export const contentType = "image/png";
  * Satori throw and break the whole card.
  */
 async function resolveIconUrl(): Promise<string | null> {
-  // The card background is navy, so the gold mark is the correct contrast pick.
+  // The card background is brand purple, so the gold mark is the correct contrast pick.
   const url = `${site.url}${site.logo.markOnDark}`;
   try {
     const res = await fetch(url, { method: "HEAD" });
@@ -42,7 +42,7 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #071638 0%, #0B1F4E 50%, #132C63 100%)",
+          background: "linear-gradient(135deg, #16032F 0%, #24044C 50%, #38106B 100%)",
           position: "relative",
           fontFamily: "sans-serif",
         }}
@@ -57,8 +57,8 @@ export default async function OpengraphImage() {
             height: 620,
             borderRadius: "50%",
             // Satori renders `opacity` as a flat alpha that muddies gold to
-            // grey against navy — tint the border colour directly instead.
-            border: "26px solid rgba(245,166,35,0.30)",
+            // grey against the purple — tint the border colour directly instead.
+            border: "26px solid rgba(252,172,4,0.30)",
             display: "flex",
           }}
         />
@@ -69,7 +69,7 @@ export default async function OpengraphImage() {
             left: 0,
             right: 0,
             height: 14,
-            background: "#F5A623",
+            background: "#FCAC04",
             display: "flex",
           }}
         />
@@ -107,26 +107,26 @@ export default async function OpengraphImage() {
               marginTop: 18,
             }}
           >
-            <div style={{ width: 48, height: 4, background: "#F5A623", display: "flex" }} />
+            <div style={{ width: 48, height: 4, background: "#FCAC04", display: "flex" }} />
             <div
               style={{
                 fontSize: 34,
                 fontWeight: 600,
-                color: "#F5A623",
+                color: "#FCAC04",
                 letterSpacing: 10,
                 display: "flex",
               }}
             >
               STUDY ABROAD
             </div>
-            <div style={{ width: 48, height: 4, background: "#F5A623", display: "flex" }} />
+            <div style={{ width: 48, height: 4, background: "#FCAC04", display: "flex" }} />
           </div>
 
           <div
             style={{
               marginTop: 48,
               fontSize: 38,
-              color: "#FFC15E",
+              color: "#FFC94A",
               fontStyle: "italic",
               display: "flex",
             }}

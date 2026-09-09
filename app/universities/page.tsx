@@ -1,5 +1,6 @@
 import { CTABand, CheckList, PageHero } from "@/components/Blocks";
 import { JsonLd } from "@/components/JsonLd";
+import { images } from "@/data/images";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { UniversityExplorer } from "@/components/UniversityExplorer";
@@ -23,6 +24,7 @@ export default function UniversitiesPage() {
         title="Universities We Work With"
         subtitle="We list only institutions we genuinely process applications for, and each one is verified before it appears here. If your target university is not listed, ask us — we may still be able to help you apply."
         crumbs={[{ label: "Universities", href: "/universities" }]}
+        image={images.sections.lectureHall}
       />
 
       <section className="bg-cream py-14 lg:py-20">
@@ -44,7 +46,7 @@ export default function UniversitiesPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl border border-navy/10 bg-white p-6 shadow-card sm:p-8">
+            <div className="rounded-2xl border border-brand/10 bg-white p-6 shadow-card sm:p-8">
               <CheckList
                 items={[
                   "Accreditation — is the institution recognised by its national authority, and will your degree be recognised back home?",
@@ -57,7 +59,7 @@ export default function UniversitiesPage() {
                   "Scholarship policy — does the university itself offer merit discounts?",
                 ]}
               />
-              <p className="mt-6 border-t border-navy/10 pt-5 text-sm leading-relaxed text-ink/70">
+              <p className="mt-6 border-t border-brand/10 pt-5 text-sm leading-relaxed text-ink/70">
                 We will go through every one of these with you for each
                 university on your shortlist, and tell you where an option is
                 weaker than it looks.
