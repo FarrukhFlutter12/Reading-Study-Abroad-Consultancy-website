@@ -281,7 +281,7 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
                   align="left"
                   eyebrow="Where you could study"
                   title="Top universities"
-                  subtitle="Institutions we currently work with in this destination. Ask us during counselling which ones offer the programme you want."
+                  subtitle="Well-known universities in this destination that accept international students. This is not a list of official partners — ask us during counselling which ones offer your programme and fit your profile."
                 />
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {c.universities.map((u) => (

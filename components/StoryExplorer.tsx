@@ -5,16 +5,27 @@ import { countries } from "@/data/countries";
 import type { Testimonial } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 import { EmptyState } from "./Blocks";
-import { TestimonialCard } from "./Cards";
+import { TestimonialCard, destinationLabel } from "./Cards";
 
 /** Country-filterable story grid. Safe when the list is empty. */
 export function StoryExplorer({ items }: { items: Testimonial[] }) {
   const [country, setCountry] = useState("all");
 
-  const available = useMemo(
-    () => countries.filter((c) => items.some((t) => t.country === c.slug)),
-    [items],
-  );
+  const available = useMemo(() => {
+    const listed = countries
+      .filter((c) => items.some((t) => t.country === c.slug))
+      .map((c) => ({ slug: c.slug, name: c.name }));
+    const extra = Array.from(
+      new Set(
+        items
+          .map((t) => t.country)
+          .filter(
+            (s): s is string => !!s && !countries.some((c) => c.slug === s),
+          ),
+      ),
+    ).map((slug) => ({ slug, name: destinationLabel(slug) }));
+    return [...listed, ...extra];
+  }, [items]);
 
   const filtered = useMemo(
     () =>

@@ -12,7 +12,7 @@ export type Testimonial = {
   name: string;
   photo?: string; // /students/name.jpg — only with written consent
   city?: string;
-  country?: string; // must match a slug from data/countries.ts, when known
+  country?: string; // slug from data/countries.ts; other slugs (e.g. "belarus") show as a plain-text tag
   university?: string;
   course?: string;
   intake?: string;
@@ -24,6 +24,7 @@ export const testimonials: Testimonial[] = [
     id: "israr-nawab",
     name: "Israr Nawab",
     city: "Shangla",
+    country: "cyprus",
     quote:
       "I had an excellent experience with Reading Study Abroad. Their team was very friendly, cooperative and always responded on time. They guided me step by step from admission to visa and travel. Highly recommended!",
   },
@@ -79,6 +80,7 @@ export const testimonials: Testimonial[] = [
     id: "muhammad-haseeb",
     name: "Muhammad Haseeb",
     city: "Swat",
+    country: "cyprus",
     quote:
       "What I liked most about Reading Study Abroad was their quick response and friendly team. They guided me step by step and made the whole process simple and stress-free.",
   },
@@ -118,6 +120,7 @@ export const testimonials: Testimonial[] = [
     id: "tahseen-alam-khattak",
     name: "Tahseen Alam Khattak",
     city: "Karak",
+    country: "belarus",
     quote:
       "The team at Reading Study Abroad made my Belarus journey very smooth and comfortable. They helped me with every step, from admission and visa to accommodation and airport pickup. Their friendly and professional support was excellent!",
   },
@@ -125,6 +128,7 @@ export const testimonials: Testimonial[] = [
     id: "abu-bakhar-sadiq",
     name: "Abu Bakhar Sadiq",
     city: "Swat",
+    country: "belarus",
     quote:
       "A big thank you to Reading Study Abroad for their continuous support. They were always available, cooperative and clear in their guidance. From Pakistan to Belarus, they made sure everything was properly arranged, including my accommodation and airport pickup.",
   },

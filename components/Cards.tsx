@@ -131,8 +131,17 @@ export function FeatureCard({
 
 /* ---------------------------------------------------------- testimonial */
 
+/** Display name for a destination slug that has no page in data/countries.ts. */
+export const destinationLabel = (slug: string) =>
+  slug
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+
 export function TestimonialCard({ item }: { item: Testimonial }) {
   const country = item.country ? countryBySlug(item.country) : undefined;
+  const otherDestination =
+    !country && item.country ? destinationLabel(item.country) : undefined;
   const meta = [item.city, item.course, item.university, item.intake].filter(
     Boolean,
   );
@@ -153,6 +162,11 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
               />
             </span>
             {country.name}
+          </span>
+        )}
+        {otherDestination && (
+          <span className="inline-flex shrink-0 items-center rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+            {otherDestination}
           </span>
         )}
       </div>

@@ -107,6 +107,18 @@ export const countries: Country[] = [
       "Complete your CAS, pay the required fees and file the student visa application",
       "Attend biometrics, prepare for any credibility interview, and complete pre-departure briefing",
     ],
+    universities: [
+      "University of Manchester",
+      "University of Birmingham",
+      "University of Leeds",
+      "University of Glasgow",
+      "University of Sheffield",
+      "University of Nottingham",
+      "Newcastle University",
+      "Coventry University",
+      "University of Hertfordshire",
+      "University of Greenwich",
+    ],
     faqs: [
       {
         q: "Do I need IELTS to study in the UK?",
@@ -190,7 +202,6 @@ export const countries: Country[] = [
       "University of Nicosia",
       "Neapolis University Pafos",
       "Frederick University",
-      "Cyprus International University",
     ],
     faqs: [
       {
@@ -294,6 +305,18 @@ export const countries: Country[] = [
       "Prepare financial documents and file the student visa application",
       "Pre-departure briefing, accommodation and arrival support",
     ],
+    universities: [
+      "Medical University of Sofia",
+      "Medical University of Plovdiv",
+      "Medical University of Varna",
+      "Medical University of Pleven",
+      "Sofia University St. Kliment Ohridski",
+      "Technical University of Sofia",
+      "Trakia University",
+      "University of National and World Economy",
+      "American University in Bulgaria",
+      "New Bulgarian University",
+    ],
     faqs: [
       {
         q: "Can I study medicine in Bulgaria in English?",
@@ -372,6 +395,18 @@ export const countries: Country[] = [
       "Book the visa appointment and prepare the full financial and accommodation file",
       "Pre-departure briefing, residence permit guidance and arrival support",
     ],
+    universities: [
+      "Politecnico di Milano",
+      "University of Bologna",
+      "Sapienza University of Rome",
+      "University of Padua",
+      "University of Milan",
+      "Politecnico di Torino",
+      "University of Pavia",
+      "University of Pisa",
+      "University of Trento",
+      "University of Naples Federico II",
+    ],
     faqs: [
       {
         q: "Are there English-taught programmes in Italy?",
@@ -447,6 +482,18 @@ export const countries: Country[] = [
       "Receive the admission letter and pay the required enrolment fees",
       "Prepare the residence permit / visa file and submit it",
       "Pre-departure briefing, accommodation and arrival support",
+    ],
+    universities: [
+      "Vilnius University",
+      "Kaunas University of Technology",
+      "Vilnius Gediminas Technical University (VILNIUS TECH)",
+      "Lithuanian University of Health Sciences",
+      "Vytautas Magnus University",
+      "Mykolas Romeris University",
+      "ISM University of Management and Economics",
+      "Klaipėda University",
+      "Kazimieras Simonavičius University",
+      "Vilnius University of Applied Sciences",
     ],
     faqs: [
       {
@@ -524,6 +571,14 @@ export const countries: Country[] = [
       "File the student visa application and complete embassy formalities",
       "Pre-departure briefing and arrival planning",
     ],
+    universities: [
+      "University of Malta",
+      "Malta College of Arts, Science and Technology (MCAST)",
+      "Queen Mary University of London — Malta Campus",
+      "American University of Malta",
+      "Institute of Tourism Studies",
+      "Global College Malta",
+    ],
     faqs: [
       {
         q: "Is everything really taught in English in Malta?",
@@ -597,6 +652,18 @@ export const countries: Country[] = [
       "Submit applications and attend any online interview",
       "Receive admission and the Certificate of Admission for the visa file",
       "File the student visa application, then pre-departure and arrival support",
+    ],
+    universities: [
+      "Seoul National University",
+      "KAIST",
+      "Yonsei University",
+      "Korea University",
+      "Sungkyunkwan University",
+      "Hanyang University",
+      "POSTECH",
+      "Kyung Hee University",
+      "Pusan National University",
+      "Chung-Ang University",
     ],
     faqs: [
       {
@@ -674,6 +741,18 @@ export const countries: Country[] = [
       "Receive the letter of acceptance and complete enrolment",
       "Prepare financial documents and file the residence permit / visa application",
       "Pre-departure briefing, accommodation and arrival support",
+    ],
+    universities: [
+      "University of Debrecen",
+      "Semmelweis University",
+      "University of Pécs",
+      "University of Szeged",
+      "Budapest University of Technology and Economics",
+      "Eötvös Loránd University (ELTE)",
+      "Corvinus University of Budapest",
+      "Óbuda University",
+      "Hungarian University of Agriculture and Life Sciences (MATE)",
+      "University of Miskolc",
     ],
     faqs: [
       {
@@ -753,6 +832,18 @@ export const countries: Country[] = [
       "Arrange accommodation, financial documents and the visa appointment",
       "Pre-departure briefing, residence formalities and arrival support",
     ],
+    universities: [
+      "Sorbonne University",
+      "Université Paris-Saclay",
+      "Université Grenoble Alpes",
+      "Aix-Marseille University",
+      "University of Strasbourg",
+      "University of Bordeaux",
+      "SKEMA Business School",
+      "NEOMA Business School",
+      "KEDGE Business School",
+      "EDHEC Business School",
+    ],
     faqs: [
       {
         q: "Can I study in France without knowing French?",
@@ -829,6 +920,18 @@ export const countries: Country[] = [
       "Prepare financial documentation",
       "File the student visa application and complete embassy formalities",
       "Pre-departure briefing, accommodation and residence permit guidance",
+    ],
+    universities: [
+      "Istanbul University",
+      "Middle East Technical University (METU)",
+      "Boğaziçi University",
+      "Istanbul Technical University",
+      "Hacettepe University",
+      "Ankara University",
+      "Bilkent University",
+      "Koç University",
+      "Sabancı University",
+      "Istanbul Medipol University",
     ],
     faqs: [
       {

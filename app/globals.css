@@ -77,6 +77,16 @@
     @apply w-full rounded-xl border border-brand/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40;
   }
 
+  /* Scrollable rows (e.g. the homepage testimonial carousel) keep native
+     scroll-snap behaviour but hide the OS scrollbar for a cleaner look. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .label {
     @apply mb-1.5 block text-sm font-medium text-brand;
   }

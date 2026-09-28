@@ -223,9 +223,12 @@ export default function HomePage() {
 
           <div className="mt-12">
             {testimonials.length ? (
-              <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {testimonials.slice(0, 3).map((t) => (
-                  <RevealItem key={t.id}>
+              <RevealGroup className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                {testimonials.map((t) => (
+                  <RevealItem
+                    key={t.id}
+                    className="w-[85vw] shrink-0 snap-center sm:w-[360px]"
+                  >
                     <TestimonialCard item={t} />
                   </RevealItem>
                 ))}

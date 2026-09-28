@@ -38,9 +38,9 @@ export default function SuccessStoriesPage() {
           <Reveal>
             <SectionHeading
               id="policy-heading"
-              eyebrow="Why this page may look sparse"
+              eyebrow="How we publish stories"
               title="Our Testimonial Policy"
-              subtitle="Plenty of consultancy websites carry glowing quotes with stock photographs attached. We would rather this page stayed empty than fill it that way."
+              subtitle="Plenty of consultancy websites carry glowing quotes with stock photographs attached. Every story here is from a real student, in their own words."
             />
           </Reveal>
 

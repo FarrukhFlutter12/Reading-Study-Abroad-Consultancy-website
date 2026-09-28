@@ -51,6 +51,7 @@ export const quickLinks: NavLink[] = [
   { label: "Apply Now", href: "/apply" },
   { label: "Scholarships", href: "/scholarships" },
   { label: "Test Preparation", href: "/test-preparation" },
+  { label: "Success Stories", href: "/success-stories" },
   { label: "Blog", href: "/blog" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
