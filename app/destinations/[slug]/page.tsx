@@ -274,6 +274,28 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
               </ol>
             </Reveal>
 
+            {/* universities */}
+            {c.universities && c.universities.length > 0 && (
+              <Reveal>
+                <SectionHeading
+                  align="left"
+                  eyebrow="Where you could study"
+                  title="Top universities"
+                  subtitle="Institutions we currently work with in this destination. Ask us during counselling which ones offer the programme you want."
+                />
+                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {c.universities.map((u) => (
+                    <li
+                      key={u}
+                      className="rounded-2xl border border-brand/10 bg-white p-4 text-sm font-medium text-brand shadow-card"
+                    >
+                      {u}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
+
             {/* faqs */}
             <Reveal>
               <SectionHeading

@@ -28,6 +28,8 @@ export type Country = {
   documents: string[];
   intakes: string[];
   processSteps: string[];
+  /** Plain institution names only — no rankings, fees or invented claims. */
+  universities?: string[];
   faqs: CountryFaq[];
   tuitionNote: string;
   languageOfInstruction: string;
@@ -141,17 +143,17 @@ export const countries: Country[] = [
     region: "Europe",
     languageOfInstruction: "English",
     intro: [
-      "Cyprus has become a practical starting point for Pakistani students who want an English-taught European degree without an unusually demanding admission process. Universities on the island deliver programmes in English, and entry criteria are generally accessible for students with a solid academic record.",
-      "The island is small, safe and warm year-round, with a low-pressure student environment and living costs that are modest by European standards. Class sizes tend to be small, which suits students who prefer direct access to their lecturers.",
-      "We help you understand which institutions are properly accredited, match your qualifications to the right programme, and prepare a visa file that clearly demonstrates your academic intent.",
+      "Cyprus is rarely the first country Pakistani families think of, and we would rather be upfront about that than oversell it. What it offers is a genuine EU-recognised degree, taught in English, at a cost that is often lower than a private university in Pakistan — which makes it a practical option where budget is the deciding factor.",
+      "It also comes with real trade-offs worth knowing before you commit. Cypriot universities are not in the global top 100, the island's job market is small, and the prestige attached to a Cyprus degree is not comparable to studying in the Netherlands or Belgium. Cyprus suits students whose goal is an affordable, EU-recognised qualification — for further study elsewhere in Europe, for work opportunities in the Gulf, or for building a case for future EU residence — rather than students chasing a globally ranked university name.",
+      "We help you understand which institutions are properly accredited, match your qualifications to a realistic programme, and prepare a visa file that clearly demonstrates your academic intent. If Cyprus is not the right fit for your goals and budget, we will tell you that directly and point you toward a destination that is.",
     ],
     highlights: [
-      "Programmes taught in English at both undergraduate and postgraduate level",
-      "Multiple intakes across the academic year at most institutions",
-      "Accessible entry criteria compared with many Western European destinations",
-      "Modest living costs relative to Western Europe",
-      "Small class sizes and a compact, walkable campus culture",
-      "Scholarship and merit discount schemes offered by several universities",
+      "EU entry point — Cyprus joined the EU in 2004, and degrees from recognised universities carry EU recognition, which can support a move into a Master's programme elsewhere in the EU",
+      "English works in daily life — the island uses English widely from its period under British administration until 1960, so you do not need Greek for everyday life, though basic Greek helps with part-time work and integration",
+      "Mediterranean climate and a relaxed pace — hot summers, mild winters, and a slower, more relaxed bureaucratic culture than students may expect from mainland Europe",
+      "A small island — it takes a few hours to drive across, so travel options are limited compared with mainland Europe; most students explore the island itself on weekends",
+      "Close to Turkey, Lebanon, Syria and Egypt — the culture and pace feel closer to the Eastern Mediterranean than Northern Europe, which many Pakistani students find an easier adjustment",
+      "A genuinely international student body at most universities, though this means integration with the local Cypriot community can be limited",
     ],
     popularCourses: [
       "Business Administration (BBA / MBA)",
@@ -181,25 +183,59 @@ export const countries: Country[] = [
       "File the student visa application and complete embassy formalities",
       "Pre-departure briefing, accommodation and arrival planning",
     ],
+    universities: [
+      "University of Cyprus",
+      "Cyprus University of Technology",
+      "European University Cyprus",
+      "University of Nicosia",
+      "Neapolis University Pafos",
+      "Frederick University",
+      "Cyprus International University",
+    ],
     faqs: [
       {
-        q: "Are degrees from Cyprus recognised in Pakistan?",
-        a: "Recognition depends on the individual institution and its accreditation status. We only work with properly accredited universities, and we will show you the accreditation of any institution before you apply so you can verify it yourself.",
+        q: "How much does it cost to study in Cyprus?",
+        a: "Cyprus is generally priced below many Western European destinations, and often below private university fees in Pakistan, but the exact figure depends on the university, city and programme — medicine, dentistry and pharmacy in particular cost more than a standard Bachelor's or Master's. Fees change every intake, so we confirm the current figure for your specific programme during counselling rather than quoting a number here.",
       },
       {
-        q: "Is IELTS mandatory for Cyprus?",
-        a: "Several universities accept their own English placement assessment instead of IELTS for certain programmes. Others require a formal test. Confirm with us for the specific university and course, since the policy differs between institutions.",
+        q: "Is Cyprus good for study?",
+        a: "It is a solid option if your priority is an affordable, EU-recognised degree taught in English — but we will say plainly that Cypriot universities are not in the global top 100 and the local job market is small. It suits students whose plan is to use the degree for further study in the EU, for work in the Gulf, or back in Pakistan, more than students chasing a globally prestigious university name.",
       },
       {
-        q: "How many intakes are there per year?",
-        a: "Most universities run a main September intake and a second intake in January, with some summer entry points on selected programmes. Applying early gives you a better shot at accommodation and scholarship consideration.",
+        q: "How much is a Cyprus study visa in Pakistan?",
+        a: "The visa fee varies and is set by the Cypriot authorities, so it can change — confirm the current amount with us or the official Cyprus immigration source before you budget for it.",
       },
       {
-        q: "Can family members visit while I study?",
-        a: "Visitor arrangements are handled separately from the student visa and depend on the current rules and on the visitor's own documentation. Ask us during counselling and we will explain the process that applies at the time.",
+        q: "Is IELTS compulsory for Cyprus?",
+        a: "Not always. Many private universities accept alternatives, such as proof of English-medium prior education or their own in-house English test, but this depends entirely on the university and the programme. We check the specific requirement for your shortlisted course before you commit to a test.",
+      },
+      {
+        q: "Can a student get PR in Cyprus?",
+        a: "Permanent residence rules are set by Cypriot immigration law and can change. A study visa is not a route to residence by itself — post-study options generally depend on securing a job offer in Cyprus. Ask us for the current position during counselling rather than assuming a fixed path.",
+      },
+      {
+        q: "Which course is best in Cyprus?",
+        a: "There is no single \"best\" course — the right choice depends on your academic background, budget and career plan. Business, computer engineering, tourism and hospitality, and pharmacy are commonly studied by international students, but we assess your specific profile before recommending a programme.",
+      },
+      {
+        q: "Can I work while studying in Cyprus?",
+        a: "Limited part-time work is generally possible during term time, subject to the hours permitted under your student visa conditions at the time. Treat this as support income, not as a way to fund your tuition, and confirm the current rules with us before you rely on it.",
+      },
+      {
+        q: "How much bank balance is required for a Cyprus study visa?",
+        a: "The required amount depends on your university, tuition fee and the immigration rules in force at the time of your application, so it varies — we calculate the figure that applies to your specific case during counselling rather than publishing a fixed number that could be outdated by your intake.",
+      },
+      {
+        q: "Best Cyprus study visa consultant in Pakistan?",
+        a: "We would rather earn that answer than claim it. Book a free counselling session with us, compare the honesty and clarity of the guidance you receive, and decide for yourself.",
+      },
+      {
+        q: "Is Cyprus part of the Schengen zone?",
+        a: "No. Cyprus is a member of the European Union but is not currently part of the Schengen area, so Schengen visa rules do not automatically apply to travel to or from Cyprus. Confirm current entry and travel rules with us before making any related travel plans.",
       },
     ],
-    tuitionNote: COMMON_TUITION_NOTE,
+    tuitionNote:
+      "Cyprus is generally priced below many Western European destinations and, for many programmes, below private university fees in Pakistan — but exact tuition and living costs vary by university, city and programme, and change every intake. Contact us for the current figures for the course you have in mind.",
   },
 
   /* ------------------------------------------------------------ BULGARIA */

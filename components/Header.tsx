@@ -311,7 +311,7 @@ export function Header({ brand }: { brand: BrandAssets }) {
         <div className="flex items-center gap-2">
           <Link
             href="/free-assessment"
-            className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-brand-dark shadow-chip transition-all hover:bg-gold-light hover:shadow-lift lg:inline-flex"
+            className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-brand-dark shadow-chip transition-all hover:bg-gold-light hover:shadow-lift xl:inline-flex"
           >
             Free Assessment
           </Link>

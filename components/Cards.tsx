@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
 import type { Country } from "@/data/countries";
+import { countryBySlug } from "@/data/countries";
 import { images } from "@/data/images";
 import type { Service } from "@/data/services";
 import type { Testimonial } from "@/data/testimonials";
@@ -131,9 +132,30 @@ export function FeatureCard({
 /* ---------------------------------------------------------- testimonial */
 
 export function TestimonialCard({ item }: { item: Testimonial }) {
+  const country = item.country ? countryBySlug(item.country) : undefined;
+  const meta = [item.city, item.course, item.university, item.intake].filter(
+    Boolean,
+  );
+
   return (
     <figure className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
-      <Quote className="h-7 w-7 text-gold" strokeWidth={1.5} aria-hidden />
+      <div className="flex items-start justify-between gap-3">
+        <Quote className="h-7 w-7 text-gold" strokeWidth={1.5} aria-hidden />
+        {country && (
+          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+            <span className="relative h-4 w-4 overflow-hidden rounded-full">
+              <Image
+                src={country.flag}
+                alt=""
+                fill
+                sizes="16px"
+                className="object-cover"
+              />
+            </span>
+            {country.name}
+          </span>
+        )}
+      </div>
       <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
         “{item.quote}”
       </blockquote>
@@ -153,11 +175,11 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
           <span className="block text-sm font-semibold text-brand">
             {item.name}
           </span>
-          <span className="block text-xs text-ink/60">
-            {[item.course, item.university, item.intake]
-              .filter(Boolean)
-              .join(" · ")}
-          </span>
+          {meta.length > 0 && (
+            <span className="block text-xs text-ink/60">
+              {meta.join(" · ")}
+            </span>
+          )}
         </span>
       </figcaption>
     </figure>

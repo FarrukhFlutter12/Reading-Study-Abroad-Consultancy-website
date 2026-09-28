@@ -86,24 +86,25 @@ For each university supply:
 
 ---
 
-## 6. Student testimonials — *written consent required*
+## 6. Student testimonials — ⚠️ ADDED 2026-09-28, CONFIRM CONSENT ON FILE
 
 **File:** `data/testimonials.ts`
 
-Currently empty; every page that would show testimonials falls back to a
-"your story could be next" card. Supply 5–8 real stories, each with:
+14 testimonials (names, home city and quotes) were supplied directly and added
+to the site — they now appear on the Home page and `/success-stories`. Two of
+them ("Israr Nawab" and "Muhammad Haseeb") did not name a destination country,
+so no destination tag is shown for those two; the rest are tagged Cyprus or
+Turkey to match what was supplied. Two students mentioned Belarus, but the site
+has no Belarus destination page yet, so no destination tag was added for them
+either — say if a Belarus page should be built.
 
-- Student's name (as they want it published)
-- Destination country slug
-- University and course
-- Intake (e.g. "September 2025")
-- Their quote, **in their own words**
-- Photo — optional; the card works without one
-
-> **You must hold written consent** from each student before their name, photo
-> or story is published, and they must be able to withdraw it. A WhatsApp
-> message saying "yes you can use this" is acceptable — keep it on file.
-> Do not publish any student's documents, visa or offer letter, ever.
+> **Please confirm written consent is on file for each of these 14 students**
+> before treating this as final — the site's policy (and CLAUDE.md) requires
+> consent for every name, photo or quote published, and it wasn't possible to
+> verify consent from the request alone. A WhatsApp message saying "yes you can
+> use this" is enough — keep it on file. No photos were added (none were
+> supplied), and none of these students' documents, visas or offer letters
+> should ever be published.
 
 ---
 
@@ -272,19 +273,21 @@ add them with a clear "subject to change" note.
 
 ---
 
-## 14. Web3Forms key — *required before launch*
+## 14. Web3Forms key — ✅ set locally, confirm it's also in Vercel
 
 **Files:** `.env.local` and Vercel environment variables
 
-1. Go to <https://web3forms.com>
-2. Enter `readingstudyabroad.pk@gmail.com` and get the free access key
-3. Put it in `.env.local` as `NEXT_PUBLIC_WEB3FORMS_KEY=your_key`
-4. Add the same variable in Vercel → Settings → Environment Variables
-5. Redeploy
+`.env.local` already has a `NEXT_PUBLIC_WEB3FORMS_KEY` value, so every form
+works in local development. This variable is inlined at **build** time, so
+production only works if the same key is also set in Vercel and the site has
+been redeployed since:
 
-**Until this is done, no form on the site can send anything.** Forms show a
-polite message asking the visitor to call or WhatsApp instead — so nothing looks
-broken, but you will not receive enquiries by email.
+1. Vercel → Project → Settings → Environment Variables
+2. Confirm `NEXT_PUBLIC_WEB3FORMS_KEY` is set there to the same value
+3. Redeploy if you just added or changed it
+
+**Until the Vercel copy is set and deployed, the live site's forms will not
+send anything**, even though local development works fine.
 
 ---
 
@@ -300,9 +303,9 @@ the sitemap, canonical URLs and all structured data.
 
 | Priority | Item |
 |---|---|
-| 🔴 Before launch | 14 (Web3Forms key — **no form works without it**), 2 (office hours), 15 (domain) |
-| 🟠 First week | 8 (office exterior photo), 11 (Maps pin + Google Business Profile) |
-| 🟡 First month | 8b (university partnership proof), 5 (universities list), 8c + 6 (consented testimonials), 7 (team), 10 (photography) |
+| 🔴 Before launch | 14 (confirm Web3Forms key is set in **Vercel**, not just locally), 2 (office hours), 15 (domain) |
+| 🟠 First week | 6 (confirm written consent on file for the 14 testimonials just added), 8 (office exterior photo), 11 (Maps pin + Google Business Profile) |
+| 🟡 First month | 8b (university partnership proof), 5 (universities list), 8c (consented student photos), 7 (team), 10 (photography) |
 | 🟢 When ready | 3, 4, 12, 13 |
 
-✅ **Done:** 1 (social handles), 9 (logo files — all assets generated).
+✅ **Done:** 1 (social handles), 9 (logo files — all assets generated), 6 (14 testimonials added, pending consent confirmation), 14 (key set locally, pending Vercel confirmation).
