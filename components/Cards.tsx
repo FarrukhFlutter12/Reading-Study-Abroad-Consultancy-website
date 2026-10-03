@@ -161,19 +161,19 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
         aria-hidden
       />
 
-      <div className="relative flex items-center gap-3">
+      <div className="relative flex items-center gap-4">
         {item.photo ? (
-          <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-gold/60 shadow-chip">
+          <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-[3px] border-white shadow-chip ring-2 ring-gold/60">
             <Image
               src={item.photo}
               alt={item.name}
               fill
-              sizes="56px"
+              sizes="80px"
               className="object-cover"
             />
           </span>
         ) : (
-          <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand text-base font-display font-semibold text-gold ring-2 ring-gold/30">
+          <span className="grid h-20 w-20 shrink-0 place-items-center rounded-full border-[3px] border-white bg-brand text-lg font-display font-semibold text-gold shadow-chip ring-2 ring-gold/30">
             {initials}
           </span>
         )}
