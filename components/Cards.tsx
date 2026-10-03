@@ -145,57 +145,77 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
   const meta = [item.city, item.course, item.university, item.intake].filter(
     Boolean,
   );
+  const initials = item.name
+    .split(" ")
+    .filter(Boolean)
+    .map((w) => w.charAt(0))
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
 
   return (
-    <figure className="flex h-full flex-col rounded-2xl border border-brand/10 bg-white p-6 shadow-card">
-      <div className="flex items-start justify-between gap-3">
-        <Quote className="h-7 w-7 text-gold" strokeWidth={1.5} aria-hidden />
-        {country && (
-          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
-            <span className="relative h-4 w-4 overflow-hidden rounded-full">
-              <Image
-                src={country.flag}
-                alt=""
-                fill
-                sizes="16px"
-                className="object-cover"
-              />
-            </span>
-            {country.name}
-          </span>
-        )}
-        {otherDestination && (
-          <span className="inline-flex shrink-0 items-center rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
-            {otherDestination}
-          </span>
-        )}
-      </div>
-      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink/80">
-        “{item.quote}”
-      </blockquote>
-      <figcaption className="mt-5 flex items-center gap-3 border-t border-brand/10 pt-5">
-        {item.photo && (
-          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-brand/10">
+    <figure className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lift">
+      <Quote
+        className="pointer-events-none absolute -right-3 -top-3 h-24 w-24 text-gold/[0.08] transition-transform duration-300 group-hover:scale-110"
+        strokeWidth={1}
+        aria-hidden
+      />
+
+      <div className="relative flex items-center gap-3">
+        {item.photo ? (
+          <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-gold/60 shadow-chip">
             <Image
               src={item.photo}
               alt={item.name}
               fill
-              sizes="44px"
+              sizes="56px"
               className="object-cover"
             />
           </span>
+        ) : (
+          <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand text-base font-display font-semibold text-gold ring-2 ring-gold/30">
+            {initials}
+          </span>
         )}
-        <span>
-          <span className="block text-sm font-semibold text-brand">
+        <span className="min-w-0">
+          <span className="block truncate text-sm font-semibold text-brand">
             {item.name}
           </span>
           {meta.length > 0 && (
-            <span className="block text-xs text-ink/60">
+            <span className="block truncate text-xs text-ink/60">
               {meta.join(" · ")}
             </span>
           )}
         </span>
-      </figcaption>
+      </div>
+
+      <blockquote className="relative mt-5 flex-1 text-sm leading-relaxed text-ink/80">
+        “{item.quote}”
+      </blockquote>
+
+      {(country || otherDestination) && (
+        <figcaption className="relative mt-5 flex items-center border-t border-brand/10 pt-4">
+          {country && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+              <span className="relative h-4 w-4 overflow-hidden rounded-full">
+                <Image
+                  src={country.flag}
+                  alt=""
+                  fill
+                  sizes="16px"
+                  className="object-cover"
+                />
+              </span>
+              {country.name}
+            </span>
+          )}
+          {otherDestination && (
+            <span className="inline-flex items-center rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+              {otherDestination}
+            </span>
+          )}
+        </figcaption>
+      )}
     </figure>
   );
 }

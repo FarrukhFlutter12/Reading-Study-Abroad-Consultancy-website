@@ -23,6 +23,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "israr-nawab",
     name: "Israr Nawab",
+    photo: "/students/israr-nawab.jpg",
     city: "Shangla",
     country: "cyprus",
     quote:
@@ -31,6 +32,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "alamgeer",
     name: "Alamgeer",
+    photo: "/students/alamgeer.jpg",
     city: "Peshawar",
     country: "cyprus",
     quote:
@@ -39,6 +41,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "atiq-ur-rahman",
     name: "Atiq ur Rahman",
+    photo: "/students/atiq-ur-rahman.png",
     city: "Lower Dir",
     country: "cyprus",
     quote:
@@ -47,6 +50,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "muhammad-saad",
     name: "Muhammad Saad",
+    photo: "/students/muhammad-saad.jpg",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -55,6 +59,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "saqlain-ali",
     name: "Saqlain Ali",
+    photo: "/students/saqlain-ali.png",
     city: "Gilgit-Baltistan",
     country: "cyprus",
     quote:
@@ -63,6 +68,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "shahid-ali-khan",
     name: "Shahid Ali Khan",
+    photo: "/students/shahid-ali-khan.jpg",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -71,6 +77,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "muhammad-shiraz-khan",
     name: "Muhammad Shiraz Khan",
+    photo: "/students/muhammad-shiraz-khan.png",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -79,6 +86,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "muhammad-haseeb",
     name: "Muhammad Haseeb",
+    photo: "/students/muhammad-haseeb.jpg",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -87,6 +95,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "afaq-khan",
     name: "Afaq Khan",
+    photo: "/students/afaq-khan.png",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -95,6 +104,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "anis-khan",
     name: "Anis Khan",
+    photo: "/students/anis-khan.jpg",
     city: "Swat",
     country: "cyprus",
     quote:
@@ -103,6 +113,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "malik-ashter",
     name: "Malik Ashter",
+    photo: "/students/malik-ashter.jpg",
     city: "Gilgit-Baltistan",
     country: "cyprus",
     quote:
@@ -111,6 +122,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "muhammad-ihtisham-khalil",
     name: "Muhammad Ihtisham Khalil",
+    photo: "/students/muhammad-ihtisham-khalil.png",
     city: "Peshawar",
     country: "turkey",
     quote:
@@ -119,6 +131,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "tahseen-alam-khattak",
     name: "Tahseen Alam Khattak",
+    photo: "/students/tahseen-alam-khattak.jpg",
     city: "Karak",
     country: "belarus",
     quote:
@@ -127,6 +140,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "abu-bakhar-sadiq",
     name: "Abu Bakhar Sadiq",
+    photo: "/students/abu-bakhar-sadiq.jpg",
     city: "Swat",
     country: "belarus",
     quote:
