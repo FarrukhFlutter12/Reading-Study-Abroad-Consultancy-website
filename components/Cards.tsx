@@ -138,6 +138,15 @@ export const destinationLabel = (slug: string) =>
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 
+/**
+ * Flags for student destinations that aren't one of the ten countries this
+ * agency actively promotes (data/countries.ts) and so have no full
+ * /destinations page — only a hand-authored flag for the testimonial chip.
+ */
+const OTHER_DESTINATION_FLAGS: Record<string, string> = {
+  belarus: "/flags/belarus.svg",
+};
+
 export function TestimonialCard({ item }: { item: Testimonial }) {
   const country = item.country ? countryBySlug(item.country) : undefined;
   const otherDestination =
@@ -163,13 +172,13 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
 
       <div className="relative flex items-center gap-4">
         {item.photo ? (
-          <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-[3px] border-white shadow-chip ring-2 ring-gold/60">
+          <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-[3px] border-white bg-white shadow-chip ring-2 ring-gold/60">
             <Image
               src={item.photo}
               alt={item.name}
               fill
               sizes="80px"
-              className="object-cover object-top"
+              className="object-contain"
             />
           </span>
         ) : (
@@ -210,7 +219,18 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
             </span>
           )}
           {otherDestination && (
-            <span className="inline-flex items-center rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/10 bg-cream px-3 py-1 text-xs font-medium text-brand">
+              {item.country && OTHER_DESTINATION_FLAGS[item.country] && (
+                <span className="relative h-4 w-4 overflow-hidden rounded-full">
+                  <Image
+                    src={OTHER_DESTINATION_FLAGS[item.country]}
+                    alt=""
+                    fill
+                    sizes="16px"
+                    className="object-cover"
+                  />
+                </span>
+              )}
               {otherDestination}
             </span>
           )}
