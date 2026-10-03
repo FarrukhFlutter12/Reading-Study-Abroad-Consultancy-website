@@ -169,7 +169,7 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
               alt={item.name}
               fill
               sizes="80px"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </span>
         ) : (
